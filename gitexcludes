@@ -1,0 +1,11 @@
+.DS_Store
+.bundle/
+.sass-cache
+*.log
+log/
+tmp/
+.wti
+
+# Vim files
+*.swp
+*.swo

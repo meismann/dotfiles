@@ -1,0 +1,8 @@
+alias r='bin/rspec'
+alias p='powder respawn'
+alias a='cd /Users/meismann/werkbank/act'
+alias f='cd /Users/meismann/werkbank/forecast'
+alias co='cd /Users/meismann/werkbank/cortex'
+alias pr='touch tmp/restart.txt'
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias grc='git checkout head features/vcr_cassettes; git rebase --continue'
