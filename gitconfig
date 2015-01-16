@@ -18,6 +18,7 @@
 
 [core]
 	editor = vim
+  ignorecase = true
 [user]
 	name = Martin Eismann
 [branch]
