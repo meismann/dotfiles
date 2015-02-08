@@ -1,5 +1,3 @@
-[core]
-	excludesfile = /Users/meismann/.gitexcludes
 [user]
 	email = martin.eismann@injixo.com
 [mergetool "sourcetree"]

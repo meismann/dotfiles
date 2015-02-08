@@ -17,6 +17,7 @@
     untracked = cyan
 
 [core]
+	excludesfile = ~/.gitexcludes
 	editor = vim
 [user]
 	name = Martin Eismann
