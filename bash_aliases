@@ -12,3 +12,4 @@ alias gam='git commit --amend -C head -a'
 alias t='bin/teaspoon'
 alias ti='bin/teaspoon -s integration'
 alias pse='ps -e | grep'
+alias d=docker
