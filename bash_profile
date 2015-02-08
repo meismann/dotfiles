@@ -30,6 +30,7 @@ __git_shortcut ga add
 __git_shortcut gaa add -A
 __git_shortcut gs status
 __git_shortcut gl log
+__git_shortcut glo log --oneline
 __git_shortcut gd diff
 __git_shortcut gr rebase
 __git_shortcut go checkout
