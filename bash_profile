@@ -1,4 +1,3 @@
-source $HOME/.bash_profile_mac
 source $HOME/.bash_aliases
 
 __define_git_completion () {
@@ -76,3 +75,16 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # makes lowercase HEAD available systems where it is not the default
 git symbolic-ref head HEAD
+
+case $OSTYPE in 
+  darwin*)
+    source $HOME/dotfiles_mac_additions/bash*
+    ;; 
+  linux*)
+    source $HOME/dotfiles_linux_additions/bash*
+    ;;
+  *)
+    ".bash_profile says: Fucking $OSTYPE is not an OS known to me."
+    ;;
+esac
+
