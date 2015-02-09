@@ -1,12 +1,32 @@
-execute pathogen#infect()
 set nocompatible                " choose no compatibility with legacy vi
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
 syntax enable
 set encoding=utf-8
+set laststatus=2   " Always show the statusline
 set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
 set ai
 filetype indent on
-colorscheme codeschool
+"colorscheme codeschool
 "" Whitespace
 set nowrap                      " don't wrap lines
 set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
