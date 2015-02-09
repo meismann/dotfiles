@@ -5,10 +5,10 @@ case $# in
     ag "$old_string"
   ;;
   2 )
-    if [ -d $2 ]
+    if [ -d "$2" ]
     then
       echo "Searching for '$old_string' in $2"
-      ag "$old_string" $2
+      ag "$old_string" "$2"
     else
       echo "Replacing '$old_string' with '$2' everywhere"
       ag -l "$old_string" | xargs sed -i '' "s/$old_string/$2/g"
@@ -16,13 +16,13 @@ case $# in
   ;;
   3 )
     echo "Replacing '$old_string' with '$3' in $2"
-    ag -l "$old_string" $2 | xargs sed -i '' "s/$old_string/$3/g"
+    ag -l "$old_string" "$2" | xargs sed -i '' "s/$old_string/$3/g"
   ;;
   *)
     echo "Eingabe so:"
-    echo "$0 search_string"
-    echo "$0 search_string search_dir"
-    echo "$0 search_string search_dir replace_string"
+    echo "sr search_string"
+    echo "sr search_string [search_dir|replace_string]"
+    echo "sr search_string search_dir replace_string"
   ;;
 esac
 
