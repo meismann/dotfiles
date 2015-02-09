@@ -73,9 +73,6 @@ export PS1=' \[\033[0;33m\]\w\[\033[00m\]\[\033[01;00m\]$(parse_git_branch): ' #
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-# makes lowercase HEAD available systems where it is not the default
-git symbolic-ref head HEAD
-
 case $OSTYPE in 
   darwin*)
     source $HOME/dotfiles_mac_additions/bash*
