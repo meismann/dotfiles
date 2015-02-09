@@ -56,7 +56,10 @@ export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export PATH=$PATH:/usr/local/share/npm/bin
 
 export PGDATA=/usr/local/var/postgres
-source /usr/local/etc/bash_completion.d/git-completion.bash
+if [[ -e /usr/local/etc/bash_completion.d/git-completion.bash ]]
+then
+  source /usr/local/etc/bash_completion.d/git-completion.bash
+fi
 T_PS1_SHOWDIRTYSTATE=true
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
