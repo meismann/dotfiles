@@ -1,0 +1,29 @@
+#!/bin/bash
+if [ ! $1 ]; then
+  echo "Usage: issuediff ISSUE_NUMBER"
+  exit 1
+fi
+
+if [[ ! $(git branch) =~ '* master' ]]; then
+  echo 'Hey, dude, only execute this on branch master!'
+  exit 1
+fi
+
+if [[ $(git stash) == 'No local changes to save' ]]; then unstash=0; else unstash=1; fi
+first_hash=`git rev-list master --grep="#$1" | tail -n 1`
+
+if [ ! $first_hash ]; then 
+  echo "No commits found for issue #$1"
+  exit 1
+fi
+  
+echo "First commit with #$1 is $first_hash"
+git checkout $first_hash~1 -b "#$1"
+git rev-list master --grep="#$1" | git cherry-pick --stdin -n --strategy=recursive -Xtheirs
+git diff --cached
+read -p 'You can now inspect the diff using a graphical tool, e.g. the Github app.
+Press enter to tear down the diff setup and return to master branch.'
+git checkout -f master
+git branch -D "#$1"
+
+if [[ $unstash == 1 ]]; then git stash pop; fi

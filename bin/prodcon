@@ -1,0 +1,5 @@
+#!/bin/bash
+FIRST=$1
+shift
+ruby connect.rb injixoapikey=711b430fcac7738e222d9519d96de0f3be6206e7 injixoapisecret=d4638f186cb0faf38bb489b57b2d27ff19fb0fab2d2402c2a9625071095c67071130977e59e19e5b command=$FIRST "$@"
+

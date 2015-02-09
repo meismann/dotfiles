@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
+processes = `ps -e`
+
+pids = processes.split("\n").select do |process_line|
+  process_line =~ /ruby/ &&
+  process_line =~ /-p 300\d|webkit_server/ ||
+  process_line =~ /thin server/
+end.map do |process_line|
+  process_line.sub /^\s*(\d+)\s.*/, '\1'
+end
+
+if pids.size > 0
+  puts "Killing #{pids.size} processes… "
+  `kill -9 #{pids.join(' ')}`
+  puts 'done. Tschüß'
+else
+  puts 'Nothing to kill'
+end
+
