@@ -76,15 +76,21 @@ export PS1=' \[\033[0;33m\]\w\[\033[00m\]\[\033[01;00m\]$(parse_git_branch): ' #
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+# add OS specific additions
 case $OSTYPE in 
   darwin*)
-    source $HOME/dotfiles_mac_additions/bash*
+    additions_dir='dotfiles_mac_additions'
     ;; 
   linux*)
-    source $HOME/dotfiles_linux_additions/bash*
+    additions_dir='dotfiles_linux_additions'
     ;;
   *)
-    ".bash_profile says: Fucking $OSTYPE is not an OS known to me."
+    exit ".bash_profile says: Fucking $OSTYPE is not an OS known to me."
     ;;
 esac
+sources=($HOME/$additions_dir/bash*)
+for file in "${sources[@]}"
+do
+  source $file
+done
 
