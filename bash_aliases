@@ -13,3 +13,4 @@ alias t='bin/teaspoon'
 alias ti='bin/teaspoon -s integration'
 alias pse='ps -e | grep'
 alias d=docker
+alias rm='rm -fr'
