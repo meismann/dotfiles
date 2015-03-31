@@ -1,6 +1,7 @@
 alias r='bin/rspec'
 alias p='powder respawn'
 alias a='cd /Users/meismann/werkbank/act'
+alias aa='cd /Users/meismann/werkbank/act-api'
 alias f='cd /Users/meismann/werkbank/forecast'
 alias co='cd /Users/meismann/werkbank/cortex'
 alias pr='touch tmp/restart.txt'
