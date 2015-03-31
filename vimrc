@@ -43,6 +43,7 @@ set magic
 vnoremap <c-f> y<ESC>/<c-r>"<CR>
 set wrap linebreak nolist
 set wildmenu
+set wildignore+=bower_components,node_modules,tmp,dist
 " ret g:CommandTWildIgnore='tmp/**,*/coverage/*,features/vcr_cassettes/*/**'
 set number
 nnoremap <c-m> :CtrlP<CR>
