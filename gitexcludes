@@ -23,7 +23,9 @@ Temporary Items
 .apdisk
 
 # Vim files
+*.swm
 *.swp
+*.swn
 *.swo
 
 .pow*
