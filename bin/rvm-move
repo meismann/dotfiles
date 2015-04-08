@@ -1,0 +1,18 @@
+#!/bin/bash
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+rvm use default;
+current=$(rvm current);
+echo "Upgrading from $current to $1 like so:"
+echo "- removing old gem versions"
+yes y | gem cleanup
+echo "- performing the actual upgrade"
+rvm upgrade $current ruby-$1 --force && \
+  echo "- creating aliases »default« and »$1«" && \
+  rvm alias create ruby-$1 $1 && \
+  rvm alias create default ruby-$1 && \
+  echo "- run bundle install in Act-api, Cortex, Forecast, iwfm-api and iwfm-wine to install still needed gems deleted by running »gem cleanup«" && \
+  aa && b && co && b && f && b && \
+  cd $HOME/werkbank/iwfm-api && b && \
+  cd $HOME/werkbank/iwfm-wine && b && \
+  echo "… done."
+
