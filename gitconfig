@@ -20,6 +20,7 @@
 	excludesfile = ~/.gitexcludes
 	editor = vim
 [user]
+	email = martin@eismann.cc
 	name = Martin Eismann
 [branch]
 	autosetuprebase = always
