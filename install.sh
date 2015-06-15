@@ -30,7 +30,7 @@ repo_dir=`pwd`
 cd
 
 # Link whatever needs to go right into ~
-linkable_files=( .bash_profile .bash_aliases .gitexcludes .vim .vimrc bin dotfiles_linux_additions dotfiles_mac_additions .gitconfig )
+linkable_files=( .bash_profile .bash_aliases .bashrc .gitexcludes .vim .vimrc bin dotfiles_linux_additions dotfiles_mac_additions .gitconfig )
 for i in "${linkable_files[@]}"
 do
   prepare_setup_of $i

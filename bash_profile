@@ -1,3 +1,5 @@
+export BASH_PROFILE_RAN=1
+
 source $HOME/.bash_aliases
 
 __define_git_completion () {
