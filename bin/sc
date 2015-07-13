@@ -1,7 +1,0 @@
-#!/bin/bash
-export RUN_SELENIUM=1
-export FORCE_RECORDING=1
-bundle exec cucumber $@
-unset RUN_SELENIUM
-unset FORCE_RECORDING
-

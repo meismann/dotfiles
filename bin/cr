@@ -1,5 +1,0 @@
-#!/bin/bash
-export FORCE_RECORDING=1
-bundle exec cucumber $@
-unset FORCE_RECORDING
-

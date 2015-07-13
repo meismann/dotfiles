@@ -1,6 +1,0 @@
-#!/bin/bash
-echo "This will execute the command in the edge cloud within the tenant of user ft_act_edge@injixo.com (PW: injixo)"
-FIRST=$1
-shift
-ruby connect.rb forecast_server=https://forecast.edge.injixo.com injixoapikey=2cf1253ee520b65a06a06aa2eb045e1118acf7c6 injixoapisecret=47d80e2bb90272faa04f59eb37e63cfc3e809fb3c5dadc9a1626fc112a15c1e928bb455bd838ac35 command=$FIRST "$@"
-
