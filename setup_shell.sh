@@ -38,5 +38,11 @@ do
   ln -s $repo_dir/${i#.} $i
 done
 
-source $HOME/.bash_profile
+echo "Sourcing the new .bash_profile…"
+source $HOME/.bash_profile && echo "…done."
+
+echo "Installung Vim plugins with Vundle…"
+cd $repo_dir \
+  && git submodule update --init vim/bundle/Vundle.vim/ \
+  && vim +PluginInstall +qall && echo "… done."
 

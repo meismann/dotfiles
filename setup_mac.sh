@@ -62,10 +62,7 @@ if [[ ! -e $KEY_FILE ]]; then
   read -p 'Use the copied key to create a new key in Github and press a key' -n 1 -s
 fi
 
-cd $WERKBANK_DIR \
-  && git clone git@github.com:meismann/dotfiles.git \
-  && ./setup_shell.sh \
-  && git submodule update --init vim/bundle/Vundle.vim/ \
-  && vim +PluginInstall +qall
+git clone git@github.com:meismann/dotfiles.git $WERKBANK_DIR/dotfiles \
+  && $WERKBANK_DIR/dotfiles/setup_shell.sh
 
 echo 'Everything setup!'
