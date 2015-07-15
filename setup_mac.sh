@@ -59,8 +59,7 @@ if [[ ! -e $KEY_FILE ]]; then
   ssh-add $KEY_FILE
   pbcopy < $KEY_FILE.pub
 
-  echo "Use the copied key to create a new key in Github and press Enter"
-  read
+  read -p 'Use the copied key to create a new key in Github and press a key' -n 1 -s
 fi
 
 cd $WERKBANK_DIR \
