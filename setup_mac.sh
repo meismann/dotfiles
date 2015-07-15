@@ -66,7 +66,7 @@ fi
 cd $WERKBANK_DIR \
   && git clone git@github.com:meismann/dotfiles.git \
   && ./setup_shell.sh \
-  && git submodule update --init vim/bundle/Vundle.vim/
+  && git submodule update --init vim/bundle/Vundle.vim/ \
   && vim +PluginInstall +qall
 
 echo 'Everything setup!'

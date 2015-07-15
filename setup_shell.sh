@@ -38,3 +38,5 @@ do
   ln -s $repo_dir/${i#.} $i
 done
 
+source $HOME/.bash_profile
+
