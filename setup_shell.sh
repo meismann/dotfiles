@@ -25,7 +25,7 @@ prepare_setup_of() {
   create_backup $file_name || remove_symlink $file_name
 }
 
-repo_dir=`pwd`
+repo_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 cd
 
