@@ -81,16 +81,16 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # add OS specific additions
 case $OSTYPE in 
   darwin*)
-    additions_dir='dotfiles_mac_additions'
+    additions_dir='mac_additions'
     ;; 
   linux*)
-    additions_dir='dotfiles_linux_additions'
+    additions_dir='linux_additions'
     ;;
   *)
     exit ".bash_profile says: Fucking $OSTYPE is not an OS known to me."
     ;;
 esac
-sources=($HOME/$additions_dir/bash*)
+sources=($HOME/werkbank/dotfiles/$additions_dir/bash*)
 for file in "${sources[@]}"
 do
   source $file
