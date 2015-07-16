@@ -59,10 +59,11 @@ if [[ ! -e $KEY_FILE ]]; then
   ssh-add $KEY_FILE
   pbcopy < $KEY_FILE.pub
 
-  read -p 'Use the copied key to create a new key in Github and press a key' -n 1 -s
+  read -p 'Use the key on the clipboard to create a new key in Github, then press Enter' -n 1 -s
+  echo # need a linebreak here
 fi
 
 git clone git@github.com:meismann/dotfiles.git $WERKBANK_DIR/dotfiles \
   && $WERKBANK_DIR/dotfiles/setup_shell.sh
 
-echo 'Everything setup!'
+echo 'Through with everything!'
