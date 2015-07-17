@@ -27,6 +27,8 @@ apps=(
 
   # these will always be English
   alfred
+  bettertouchtool
+  timeedition
 
   # these will automatically be German
   virtualbox
