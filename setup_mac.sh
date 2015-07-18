@@ -10,6 +10,8 @@ formulas=(
   git
   tree
   ag
+  # Dependency of RVM
+  gpg
 )
 
 echo 'Brewing formulas…'
