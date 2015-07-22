@@ -42,6 +42,7 @@ apps=(
   google-chrome
   vlc
   transmission
+  sequel-pro
 
   # these need an explicit German localisation
   firefox-de
