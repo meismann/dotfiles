@@ -20,7 +20,7 @@
 	excludesfile = ~/.gitexcludes
 	editor = vim
 [user]
-	email = martin@eismann.cc
+	email = softwerk@eismann.cc
 	name = Martin Eismann
 [branch]
 	autosetuprebase = always
@@ -32,3 +32,7 @@
 	smudge = git media smudge %f
 [push]
 	default = simple
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

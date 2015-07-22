@@ -32,6 +32,9 @@ apps=(
   alfred
   bettertouchtool
   timeedition
+  github
+  pg-commander
+  pgadmin3
 
   # these will automatically be German
   virtualbox
