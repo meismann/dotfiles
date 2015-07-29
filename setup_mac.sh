@@ -11,6 +11,7 @@ formulas=(
   tree
   ag
   postgres
+  imagemagick
   # Dependency of RVM
   gpg
 )
