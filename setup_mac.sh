@@ -36,6 +36,7 @@ apps=(
   github
   pg-commander
   pgadmin3
+  libreoffice
 
   # these will automatically be German
   virtualbox
@@ -44,6 +45,7 @@ apps=(
   vlc
   transmission
   sequel-pro
+  opera
 
   # these need an explicit German localisation
   firefox-de
