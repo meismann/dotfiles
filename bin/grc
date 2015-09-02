@@ -1,0 +1,2 @@
+echo "Info für 00$1:"
+head -1 .git/rebase-apply/00$1
