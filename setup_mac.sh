@@ -37,6 +37,7 @@ apps=(
   pg-commander
   pgadmin3
   libreoffice
+  slack
 
   # these will automatically be German
   virtualbox
