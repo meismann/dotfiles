@@ -1,0 +1,1 @@
+git ftp push -u $1 -p $2 ftp://alfa3018.alfahosting-server.de/html/ffa.de
