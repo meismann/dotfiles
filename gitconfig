@@ -19,6 +19,7 @@
 [core]
 	excludesfile = ~/.gitexcludes
 	editor = vim
+	filemode = false
 [user]
 	email = softwerk@eismann.cc
 	name = Martin Eismann
