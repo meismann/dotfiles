@@ -103,3 +103,4 @@ endif
 " Don't jump to already open window. This is annoying if you are maintaining
 " several Tab workspaces and want to open two windows into the same file.
 let g:ctrlp_switch_buffer = 0
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
