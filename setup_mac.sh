@@ -80,6 +80,7 @@ if [[ ! -e $KEY_FILE ]]; then
 fi
 
 git clone git@github.com:meismann/dotfiles.git $WERKBANK_DIR/dotfiles \
-  && $WERKBANK_DIR/dotfiles/setup_shell.sh
+  && $WERKBANK_DIR/dotfiles/setup_dotfile_symlinks.sh \
+  && $WERKBANK_DIR/dotfiles/setup_generic_cmdline.sh
 
 echo 'Through with everything!'
