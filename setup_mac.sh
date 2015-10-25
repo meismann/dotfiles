@@ -58,6 +58,9 @@ apps=(
 # Default is: /Users/$user/Applications
 brew cask install --appdir="/Applications" ${apps[@]} && echo '…done.'
 
+echo "Installing Pow…"
+curl get.pow.cx | sh && echo '… done'
+
 echo 'Now customise the Shell…'
 
 WERKBANK_DIR=$HOME/werkbank
