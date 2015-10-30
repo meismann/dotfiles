@@ -1,6 +1,9 @@
 #!/bin/bash
 
 echo "Installung Vim plugins with Vundle…"
+
+repo_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
 cd $repo_dir \
   && git submodule update --init vim/bundle/Vundle.vim/ \
   && vim +PluginInstall +qall && echo "… done."
