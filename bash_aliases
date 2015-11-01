@@ -9,8 +9,6 @@ alias bu='bundle update'
 alias m='bundle exec rake db:migrate && bundle exec rake db:migrate RAILS_ENV=test'
 alias i='bundle exec rake i18n:js:export'
 alias gam='git commit --amend -C HEAD -a'
-alias t='bin/teaspoon'
-alias ti='bin/teaspoon -s integration'
 alias pse='ps -e | grep'
 alias d=docker
 alias rm='rm -fr'
