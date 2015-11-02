@@ -14,6 +14,7 @@ formulas=(
   imagemagick
   # Dependency of RVM
   gpg
+  youtube-dl
 )
 
 echo 'Brewing formulas…'
