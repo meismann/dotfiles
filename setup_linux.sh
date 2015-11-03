@@ -27,10 +27,6 @@ git clone git@github.com:meismann/dotfiles.git $WERKBANK_DIR/dotfiles \
   && $WERKBANK_DIR/dotfiles/setup_dotfile_symlinks.sh \
   && $WERKBANK_DIR/dotfiles/setup_generic_cmdline.sh
 
-sudo mkdir -p /usr/local/etc/bash_completion.d
-git clone https://github.com/todb-r7/git-completion.bash.git /tmp/git-completion.bash && \
-  sudo cp /tmp/git-completion.bash/git-completion.bash /usr/local/etc/bash_completion.d/
-
 # Remove Amazon shit:
 sudo apt-get remove unity-webapps-common
 
