@@ -2,7 +2,7 @@
 
 sudo apt-get --yes install vim git tree silversearcher-ag postgresql pgadmin3 \
   virtualbox vlc mysql-server mysql-client mysql-workbench xclip gnome-do gimp \
-  synaptic nodejs youtube-dl
+  synaptic nodejs youtube-dl chromium-browser
 
 # missing: timeedition sublime skype
 echo 'Now customise the Shell…'
