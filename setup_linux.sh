@@ -2,7 +2,7 @@
 
 sudo apt-get --yes install vim git tree silversearcher-ag postgresql pgadmin3 \
   virtualbox vlc mysql-server mysql-client mysql-workbench xclip gnome-do gimp \
-  synaptic nodejs youtube-dl chromium-browser
+  synaptic nodejs youtube-dl chromium-browser curl
 
 # missing: timeedition sublime skype
 echo 'Now customise the Shell…'
@@ -23,11 +23,13 @@ if [[ ! -e $KEY_FILE ]]; then
   echo # need a linebreak here
 fi
 
-git clone git@github.com:meismann/dotfiles.git $WERKBANK_DIR/dotfiles \
-  && $WERKBANK_DIR/dotfiles/setup_dotfile_symlinks.sh \
-  && $WERKBANK_DIR/dotfiles/setup_generic_cmdline.sh
+if [[ ! -d $WERKBANK_DIR/dotfiles ]]; then
+	git clone git@github.com:meismann/dotfiles.git $WERKBANK_DIR/dotfiles
+fi
+$WERKBANK_DIR/dotfiles/setup_dotfile_symlinks.sh \
+&& $WERKBANK_DIR/dotfiles/setup_generic_cmdline.sh
 
 # Remove Amazon shit:
-sudo apt-get remove unity-webapps-common
+sudo apt-get --yes remove unity-webapps-common
 
 echo 'Through with everything!'
