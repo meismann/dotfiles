@@ -65,7 +65,6 @@ curl get.pow.cx | sh && echo '… done'
 echo 'Now customise the Shell…'
 
 WERKBANK_DIR=$HOME/werkbank
-mkdir -pv $WERKBANK_DIR
 
 mkdir -p $HOME/.ssh
 KEY_FILE=$HOME/.ssh/github_rsa
@@ -80,8 +79,11 @@ if [[ ! -e $KEY_FILE ]]; then
   echo # need a linebreak here
 fi
 
-git clone git@github.com:meismann/dotfiles.git $WERKBANK_DIR/dotfiles \
-  && $WERKBANK_DIR/dotfiles/setup_dotfile_symlinks.sh \
+if [[ ! -e $WERKBANK_DIR/dotfiles/.git ]]; then
+  git clone git@github.com:meismann/dotfiles.git $WERKBANK_DIR/dotfiles
+fi
+
+$WERKBANK_DIR/dotfiles/setup_dotfile_symlinks.sh \
   && $WERKBANK_DIR/dotfiles/setup_generic_cmdline.sh
 
 echo 'Through with everything!'
