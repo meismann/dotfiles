@@ -34,7 +34,7 @@ apps=(
   alfred
   bettertouchtool
   timeedition
-  github
+  github-desktop
   pg-commander
   pgadmin3
   libreoffice
