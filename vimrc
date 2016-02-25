@@ -1,23 +1,19 @@
 set nocompatible                " choose no compatibility with legacy vi
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
+Plug 'gmarik/Vundle.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-powerline'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 
 syntax enable
 set encoding=utf-8
