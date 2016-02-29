@@ -15,6 +15,7 @@ formulas=(
   # Dependency of RVM
   gpg
   youtube-dl
+  mysql
 )
 
 echo 'Brewing formulas…'
