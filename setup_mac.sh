@@ -49,6 +49,7 @@ apps=(
   transmission
   sequel-pro
   opera
+  owncloud
 
   # these need an explicit German localisation
   firefox-de
