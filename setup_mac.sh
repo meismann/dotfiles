@@ -16,6 +16,7 @@ formulas=(
   gpg
   youtube-dl
   mysql
+  wget
 )
 
 echo 'Brewing formulas…'
@@ -40,6 +41,7 @@ apps=(
   pgadmin3
   libreoffice
   slack
+  clipmenu
 
   # these will automatically be German
   virtualbox
