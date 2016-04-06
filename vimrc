@@ -70,18 +70,8 @@ command! -nargs=* Fr call s:FuncFr(<f-args>)
 
 " http://stackoverflow.com/questions/3761770/iterm-vim-colorscheme-not-working
 let &t_Co=256
-let mapleader=' '
 
-" From http://velvetpulse.com/2012/11/19/improve-your-ruby-workflow-by-integrating-vim-tmux-pry/
-let g:ScreenImpl = 'Tmux'
-let g:ScreenShellTmuxInitArgs = '-2'
-let g:ScreenShellInitialFocus = 'shell'
-let g:ScreenShellQuitOnVimExit = 0
-map <F5> :ScreenShellVertical<CR>
-command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
-map <Leader>r :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
-map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
-map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
+let mapleader=' '
 
 if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
