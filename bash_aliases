@@ -16,3 +16,6 @@ alias rs='bin/rspec'
 alias rk='bin/rake'
 alias rl='bin/rails'
 alias rt='bin/rake test'
+
+# Kunden:
+alias ds='BRANCH_NAME=thalia cap staging deploy; say fertig'
