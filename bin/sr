@@ -11,7 +11,7 @@ case $# in
       ag -Q "$old_string" "$2"
     else
       echo "Replacing '$old_string' with '$2' everywhere"
-      ag -lQ "$old_string" | xargs sed --in-place "s/$old_string/$2/g"
+      ag -lQ "$old_string" | xargs sed -i '' "s/$old_string/$2/g"
     fi
   ;;
   3 )
