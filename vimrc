@@ -42,7 +42,6 @@ set wrap linebreak nolist
 set wildmenu
 set wildignore+=bower_components,node_modules,tmp,dist,*.jpg,*.png,*.woff,*.eot,*.ttf
 set number
-nnoremap <c-m> :CtrlP<CR>
 set suffixesadd+=.js
 set suffixesadd+=.rb
 set suffixesadd+=.js.coffee
@@ -90,4 +89,7 @@ endif
 " Don't jump to already open window. This is annoying if you are maintaining
 " several Tab workspaces and want to open two windows into the same file.
 let g:ctrlp_switch_buffer = 0
+nnoremap <c-m> :CtrlP<CR>
+nnoremap <BS> :CtrlPMRU<CR>
+
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
