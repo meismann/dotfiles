@@ -11,6 +11,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'Lokaltog/vim-powerline'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
+Plug 'joonty/vdebug'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -39,8 +40,7 @@ set magic
 vnoremap <c-f> y<ESC>/<c-r>"<CR>
 set wrap linebreak nolist
 set wildmenu
-set wildignore+=bower_components,node_modules,tmp,dist
-" ret g:CommandTWildIgnore='tmp/**,*/coverage/*,features/vcr_cassettes/*/**'
+set wildignore+=bower_components,node_modules,tmp,dist,*.jpg,*.png,*.woff,*.eot,*.ttf
 set number
 nnoremap <c-m> :CtrlP<CR>
 set suffixesadd+=.js
@@ -76,7 +76,8 @@ let mapleader=' '
 if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command =
-    \ 'ag %s --files-with-matches -g "" --ignore "\.git$"'
+    \ 'ag %s --files-with-matches -g "" -p <(printf "*.git\n*.jpeg\n*.jpg\n*.png\n*.woff\n*.eot\n*.ttf\n*.otf\n*.svg\n*.ico\n*.gif\n*.pdf\n*psd")'
+"    \ 'ag %s --files-with-matches -g "" -iG "^(?!.*\.jpg)(?!.*\.git).(?!.*\.png)(?!.*\.woff)(?!.*\.eot)(?!.*\.ttf)(?!.*\.eot)*$"'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
