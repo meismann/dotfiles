@@ -18,4 +18,4 @@ alias rl='bin/rails'
 alias rt='bin/rake test'
 
 # Kunden:
-alias ds='BRANCH_NAME=thalia cap staging deploy; say fertig'
+alias ds='BRANCH_NAME=$(git symbolic-ref --short HEAD) cap staging deploy; say fertig'
