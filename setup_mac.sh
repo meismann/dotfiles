@@ -17,6 +17,8 @@ formulas=(
   youtube-dl
   mysql
   wget
+  chromedriver
+  npm
 )
 
 echo 'Brewing formulas…'
