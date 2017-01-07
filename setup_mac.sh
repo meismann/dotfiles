@@ -33,6 +33,7 @@ brew tap caskroom/versions
 apps=(
   flash
   sublime-text3
+  gimp
 
   # these will always be English
   alfred
