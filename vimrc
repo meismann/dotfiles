@@ -93,3 +93,20 @@ nnoremap <c-m> :CtrlP<CR>
 nnoremap <BS> :CtrlPMRU<CR>
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+
+" Vdebug
+let g:vdebug_keymap = {
+\    "run" : "<Leader>/",
+\    "run_to_cursor" : "<Down>",
+\    "step_over" : "<Up>",
+\    "step_into" : "<Left>",
+\    "step_out" : "<Right>",
+\    "close" : "q",
+\    "detach" : "x",
+\    "set_breakpoint" : "<Leader>p",
+\    "eval_visual" : "<Leader>e"
+\}
+
+let g:vdebug_options = {
+\    "break_on_open" : 0,
+\}
