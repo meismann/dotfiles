@@ -1,0 +1,1 @@
+scp -r -P 2222 root@192.168.178.$1:/sdcard/rerware /Users/user/archiv/Androidenbackups
