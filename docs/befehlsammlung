@@ -1,0 +1,2 @@
+# Prüfen, ob der Schlüssel akzeptiert wird:
+ssh -vvvv git@gitlab.com
