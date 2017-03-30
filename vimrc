@@ -12,6 +12,7 @@ Plug 'Lokaltog/vim-powerline'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'joonty/vdebug'
+Plug 'mustache/vim-mustache-handlebars'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -53,6 +54,9 @@ nnoremap <c-k> <c-w><c-k>
 nnoremap <c-j> <c-w><c-j>
 nnoremap <c-h> <c-w><c-h>
 
+" Do not clutter workspace with .swp files
+set directory=/tmp//
+
 function! s:FuncFr(search, replace, where)
   :noautocmd vim /a:search/ a:where
   :set hidden
@@ -75,7 +79,7 @@ let mapleader=' '
 if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command =
-    \ 'ag %s --files-with-matches -g "" -p <(printf "*.git\n*.jpeg\n*.jpg\n*.png\n*.woff\n*.eot\n*.ttf\n*.otf\n*.svg\n*.ico\n*.gif\n*.pdf\n*psd")'
+    \ 'ag %s --files-with-matches -g "" -p <(printf "tmp*\nnode_modules*\nbower_components*\n*.git\n*.jpeg\n*.jpg\n*.png\n*.woff\n*.eot\n*.ttf\n*.otf\n*.svg\n*.ico\n*.gif\n*.pdf\n*psd")'
 "    \ 'ag %s --files-with-matches -g "" -iG "^(?!.*\.jpg)(?!.*\.git).(?!.*\.png)(?!.*\.woff)(?!.*\.eot)(?!.*\.ttf)(?!.*\.eot)*$"'
 
   " ag is fast enough that CtrlP doesn't need to cache
