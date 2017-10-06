@@ -53,6 +53,14 @@ __git_shortcut gbk bisect skip
 __git_shortcut gbr bisect reset
 __git_shortcut gw show
 
+# Create dir and enter
+mcd ()
+{
+  mkdir -p -- "$1" &&
+    cd -P -- "$1"
+}
+
+
 export POSTGRES=true
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export PATH=$PATH:/usr/local/share/npm/bin
