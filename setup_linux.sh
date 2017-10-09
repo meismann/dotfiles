@@ -14,7 +14,7 @@ mkdir -p $HOME/.ssh
 KEY_FILE=$HOME/.ssh/github_rsa
 
 if [[ ! -e $KEY_FILE ]]; then
-  ssh-keygen -f $KEY_FILE -t rsa -b 4096 -C 'martin@rumpelstilzchen123.cc'
+  ssh-keygen -f $KEY_FILE -t rsa -b 4096 -C 'martineismann@example.com'
 
   ssh-add $KEY_FILE
   xclip -sel clip < $KEY_FILE.pub
