@@ -13,6 +13,7 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'joonty/vdebug'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'jparise/vim-graphql'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
