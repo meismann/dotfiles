@@ -1,7 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/meismann/.rvm/gems/rbx-2.2.10/gems/iwfm-ruby-3.4.1/lib'
 let g:netrw_dirhist_2='/Users/meismann/werkbank/cortex'
 let g:netrw_dirhist_3='/media/habseligkeiten/daten/Werkbank/dotfiles/bin/log'
 let g:netrw_dirhist_4='/media/habseligkeiten/daten/Werkbank/dotfiles/bin'
 let g:netrw_dirhist_5='/media/habseligkeiten/daten/Werkbank/dotfiles/bin/log'
+let g:netrw_dirhist_6='/home/meismann/.rvm/gems/ruby-2.4.1/gems/actionpack-5.0.6/lib'
+let g:netrw_dirhist_7='/home/meismann/.rvm/gems/ruby-2.4.1/gems/actionpack-5.0.6/lib/action_dispatch'
+let g:netrw_dirhist_8='/home/meismann/.rvm/gems/ruby-2.4.1/gems/actionpack-5.0.6/lib'
