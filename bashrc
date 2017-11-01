@@ -60,6 +60,12 @@ mcd ()
     cd -P -- "$1"
 }
 
+# cd to the bundled gem
+bcd ()
+{
+  gem=$1
+  cd $(bundle show $gem)
+}
 
 export POSTGRES=true
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
