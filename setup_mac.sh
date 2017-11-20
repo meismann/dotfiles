@@ -24,27 +24,23 @@ formulas=(
 echo 'Brewing formulas…'
 brew install ${formulas[@]}
 
-echo 'Installing Homebrew Cask…'
-brew install caskroom/cask/brew-cask && echo '…done.'
-
 echo 'Installing apps with Homebrew Cask…'
 # To get versions in German language:
-brew tap caskroom/versions
 apps=(
-  flash
-  sublime-text3
+  flash-player
+  sublime-text
   gimp
 
   # these will always be English
   alfred
   bettertouchtool
   timeedition
-  github-desktop
+  github
   pg-commander
   pgadmin3
   libreoffice
   slack
-  clipmenu
+  clipy
 
   # these will automatically be German
   virtualbox
@@ -57,14 +53,14 @@ apps=(
   owncloud
 
   # these need an explicit German localisation
-  firefox-de
-  thunderbird-de
-  adobe-reader-de
+  firefox
+  thunderbird
+  adobe-acrobat-reader
 )
 
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
-brew cask install --appdir="/Applications" ${apps[@]} && echo '…done.'
+brew cask install --language=de ${apps[@]} && echo '…done.'
 
 echo "Installing Pow…"
 curl get.pow.cx | sh && echo '… done'
