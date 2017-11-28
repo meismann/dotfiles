@@ -70,7 +70,7 @@ bcd ()
 export POSTGRES=true
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export PATH=$PATH:/usr/local/share/npm/bin
-
+export HISTFILESIZE=2500
 export PGDATA=/usr/local/var/postgres
 
 if [[ -e /usr/local/etc/bash_completion.d/git-completion.bash ]]
