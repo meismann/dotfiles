@@ -117,3 +117,4 @@ do
   source $file
 done
 
+[ -e $HOME/.sagerc ] && source $HOME/.sagerc
