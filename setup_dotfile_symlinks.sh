@@ -30,7 +30,7 @@ repo_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 cd
 
 # Link whatever needs to go right into ~
-linkable_files=( .bash_profile .bash_aliases .bashrc .gitexcludes .vim .vimrc bin .gitconfig .gemrc .inputrc )
+linkable_files=( .bash_profile .bash_aliases .bashrc .gitignore .vim .vimrc bin .gitconfig .gemrc .inputrc )
 for i in "${linkable_files[@]}"
 do
   prepare_setup_of $i

@@ -17,11 +17,11 @@
     untracked = cyan
 
 [core]
-	excludesfile = /Users/user/.gitexcludes
+	excludesfile = ~/.gitignore
 	editor = vim
 	filemode = false
 [user]
-	email = softwerk@eismann.cc
+	email = martin.eismann@sage.com
 	name = Martin Eismann
 [branch]
 	autosetuprebase = always
