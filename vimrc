@@ -58,20 +58,6 @@ nnoremap <c-h> <c-w><c-h>
 " Do not clutter workspace with .swp files
 set directory=/tmp//
 
-function! s:FuncFr(search, replace, where)
-  :noautocmd vim /a:search/ a:where
-  :set hidden
-  :cfirst
-  qa
-  :%s//a:replace/gce
-  :cnf
-  @q
-  q
-  :wa
-endfunction
-
-command! -nargs=* Fr call s:FuncFr(<f-args>)
-
 " http://stackoverflow.com/questions/3761770/iterm-vim-colorscheme-not-working
 let &t_Co=256
 
