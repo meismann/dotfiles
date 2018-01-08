@@ -11,9 +11,9 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'Lokaltog/vim-powerline'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
-Plug 'joonty/vdebug'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'jparise/vim-graphql'
+Plug 'vim-ruby/vim-ruby'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -77,6 +77,7 @@ let &t_Co=256
 
 let mapleader=' '
 
+" Crtl-P
 if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command =
@@ -94,24 +95,9 @@ endif
 " Don't jump to already open window. This is annoying if you are maintaining
 " several Tab workspaces and want to open two windows into the same file.
 let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = ''
 nnoremap <c-m> :CtrlP<CR>
 nnoremap <BS> :CtrlPMRU<CR>
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
-" Vdebug
-let g:vdebug_keymap = {
-\    "run" : "<Leader>/",
-\    "run_to_cursor" : "<Down>",
-\    "step_over" : "<Up>",
-\    "step_into" : "<Left>",
-\    "step_out" : "<Right>",
-\    "close" : "q",
-\    "detach" : "x",
-\    "set_breakpoint" : "<Leader>p",
-\    "eval_visual" : "<Leader>e"
-\}
-
-let g:vdebug_options = {
-\    "break_on_open" : 0,
-\}
