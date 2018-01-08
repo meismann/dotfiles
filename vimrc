@@ -70,8 +70,9 @@ if executable('ag')
     \ 'ag %s --files-with-matches -g "" -p <(printf "tmp*\nnode_modules*\nbower_components*\n*.git\n*.jpeg\n*.jpg\n*.png\n*.woff\n*.eot\n*.ttf\n*.otf\n*.svg\n*.ico\n*.gif\n*.pdf\n*psd")'
 "    \ 'ag %s --files-with-matches -g "" -iG "^(?!.*\.jpg)(?!.*\.git).(?!.*\.png)(?!.*\.woff)(?!.*\.eot)(?!.*\.ttf)(?!.*\.eot)*$"'
 
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+  " ag is not always fast enough for CtrlP not to need to cache, depending on
+  " repo size
+  " let g:ctrlp_use_caching = 0
 else
   " Fall back to using git ls-files if Ag is not available
   let g:ctrlp_custom_ignore = '\.git$'
