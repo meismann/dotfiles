@@ -1,3 +1,4 @@
 vim/.netrwhist
 # All the bundles are installed by vim +PluginInstall +qall, so dont give a shit in git
 vim/plugged/*
+vim/.netrwhist
