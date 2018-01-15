@@ -4,7 +4,6 @@ filetype off                  " required
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'gmarik/Vundle.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'Lokaltog/vim-easymotion'
@@ -12,7 +11,6 @@ Plug 'Lokaltog/vim-powerline'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'jparise/vim-graphql'
 Plug 'vim-ruby/vim-ruby'
 
 " All of your Plugins must be added before the following line
