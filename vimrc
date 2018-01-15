@@ -31,7 +31,15 @@ set nowrap                      " don't wrap lines
 set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
-autocmd BufWritePre *.* :%s/\s\+$//e " remove trailing whitespaces
+
+function! TrimWhiteSpace()
+  let save_cursor = getpos(".")
+  :%s/\s\+$//e " remove trailing whitespaces http://vim.wikia.com/wiki/Remove_unwanted_spaces
+  :%s/\n\{2,}/\r\r/e " condense lines http://vim.wikia.com/wiki/Remove_unwanted_empty_lines
+  :silent! 0;/^\%(\_s*\S\)\@!/,$d " remove trailing blank lines https://stackoverflow.com/questions/7495932/how-can-i-trim-blank-lines-at-the-end-of-file-in-vim
+  call setpos('.', save_cursor)
+endfunction
+autocmd BufWritePre * call TrimWhiteSpace()
 
 "" Searching
 set hlsearch                    " highlight matches
@@ -87,4 +95,3 @@ nnoremap <c-m> :CtrlP<CR>
 nnoremap <BS> :CtrlPMRU<CR>
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
-
