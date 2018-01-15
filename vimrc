@@ -3,7 +3,6 @@ filetype off                  " required
 
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
-
 Plug 'kien/ctrlp.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'Lokaltog/vim-easymotion'
@@ -14,9 +13,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'vim-ruby/vim-ruby'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-
-" All of your Plugins must be added before the following line
-call plug#end()            " required
+call plug#end()
 
 syntax enable
 set encoding=utf-8
@@ -25,21 +22,11 @@ set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
 set ai
 filetype indent on
-"colorscheme codeschool
-"" Whitespace
 set nowrap                      " don't wrap lines
 set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
-
-function! TrimWhiteSpace()
-  let save_cursor = getpos(".")
-  :%s/\s\+$//e " remove trailing whitespaces http://vim.wikia.com/wiki/Remove_unwanted_spaces
-  :%s/\n\{2,}/\r\r/e " condense lines http://vim.wikia.com/wiki/Remove_unwanted_empty_lines
-  :silent! 0;/^\%(\_s*\S\)\@!/,$d " remove trailing blank lines https://stackoverflow.com/questions/7495932/how-can-i-trim-blank-lines-at-the-end-of-file-in-vim
-  call setpos('.', save_cursor)
-endfunction
-autocmd BufWritePre * call TrimWhiteSpace()
+set directory=/tmp//            " Do not clutter workspace with .swp files
 
 "" Searching
 set hlsearch                    " highlight matches
@@ -47,7 +34,6 @@ set incsearch                   " incremental searching
 set ignorecase smartcase        " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 set magic
-vnoremap <c-f> y<ESC>/<c-r>"<CR>
 set wrap linebreak nolist
 set wildmenu
 set wildignore+=bower_components,node_modules,tmp,dist,*.jpg,*.png,*.woff,*.eot,*.ttf
@@ -63,35 +49,19 @@ nnoremap <c-k> <c-w><c-k>
 nnoremap <c-j> <c-w><c-j>
 nnoremap <c-h> <c-w><c-h>
 
-" Do not clutter workspace with .swp files
-set directory=/tmp//
-
 " http://stackoverflow.com/questions/3761770/iterm-vim-colorscheme-not-working
 let &t_Co=256
 
 let mapleader=' '
 
-" Crtl-P
-if executable('ag')
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command =
-    \ 'ag %s --files-with-matches -g "" -p <(printf "tmp*\nnode_modules*\nbower_components*\n*.git\n*.jpeg\n*.jpg\n*.png\n*.woff\n*.eot\n*.ttf\n*.otf\n*.svg\n*.ico\n*.gif\n*.pdf\n*psd")'
-"    \ 'ag %s --files-with-matches -g "" -iG "^(?!.*\.jpg)(?!.*\.git).(?!.*\.png)(?!.*\.woff)(?!.*\.eot)(?!.*\.ttf)(?!.*\.eot)*$"'
-
-  " ag is not always fast enough for CtrlP not to need to cache, depending on
-  " repo size
-  " let g:ctrlp_use_caching = 0
-else
-  " Fall back to using git ls-files if Ag is not available
-  let g:ctrlp_custom_ignore = '\.git$'
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
-endif
-
-" Don't jump to already open window. This is annoying if you are maintaining
-" several Tab workspaces and want to open two windows into the same file.
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = ''
-nnoremap <c-m> :CtrlP<CR>
-nnoremap <BS> :CtrlPMRU<CR>
-
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+
+"" Whitespaces
+function! TrimWhiteSpace()
+  let save_cursor = getpos(".")
+  :%s/\s\+$//e " remove trailing whitespaces http://vim.wikia.com/wiki/Remove_unwanted_spaces
+  :%s/\n\{2,}/\r\r/e " condense lines http://vim.wikia.com/wiki/Remove_unwanted_empty_lines
+  :silent! 0;/^\%(\_s*\S\)\@!/,$d " remove trailing blank lines https://stackoverflow.com/questions/7495932/how-can-i-trim-blank-lines-at-the-end-of-file-in-vim
+  call setpos('.', save_cursor)
+endfunction
+autocmd BufWritePre * call TrimWhiteSpace()
