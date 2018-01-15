@@ -118,3 +118,5 @@ do
 done
 
 [ -e $HOME/.sagerc ] && source $HOME/.sagerc
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

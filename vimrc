@@ -65,3 +65,7 @@ function! TrimWhiteSpace()
   call setpos('.', save_cursor)
 endfunction
 autocmd BufWritePre * call TrimWhiteSpace()
+
+" FZF
+nmap <BS> :Buffers<CR>
+nmap <CR> :Files<CR>

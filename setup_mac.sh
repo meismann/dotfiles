@@ -19,10 +19,13 @@ formulas=(
   wget
   chromedriver
   npm
+  fzf
 )
 
 echo 'Brewing formulas…'
 brew install ${formulas[@]}
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
 
 echo 'Installing apps with Homebrew Cask…'
 # To get versions in German language:
