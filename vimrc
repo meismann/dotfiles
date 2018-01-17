@@ -7,7 +7,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Lokaltog/vim-powerline'
-" Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'mustache/vim-mustache-handlebars'
 " Plug 'vim-ruby/vim-ruby'
@@ -59,8 +59,8 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 "" Whitespaces
 function! TrimWhiteSpace()
   let save_cursor = getpos(".")
-  :%s/\s\+$//e " remove trailing whitespaces http://vim.wikia.com/wiki/Remove_unwanted_spaces
-  :%s/\n\{2,}/\r\r/e " condense lines http://vim.wikia.com/wiki/Remove_unwanted_empty_lines
+  :silent! %s/\s\+$//e " remove trailing whitespaces http://vim.wikia.com/wiki/Remove_unwanted_spaces
+  :silent! %s/\n\{2,}/\r\r/e " condense lines http://vim.wikia.com/wiki/Remove_unwanted_empty_lines
   :silent! 0;/^\%(\_s*\S\)\@!/,$d " remove trailing blank lines https://stackoverflow.com/questions/7495932/how-can-i-trim-blank-lines-at-the-end-of-file-in-vim
   call setpos('.', save_cursor)
 endfunction
