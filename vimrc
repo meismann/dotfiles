@@ -58,6 +58,10 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
 "" Whitespaces
 function! TrimWhiteSpace()
+  if &ft =~ 'yaml'
+    " Dont strip if file type is Yaml
+    return
+  endif
   let save_cursor = getpos(".")
   :silent! %s/\s\+$//e " remove trailing whitespaces http://vim.wikia.com/wiki/Remove_unwanted_spaces
   :silent! %s/\n\{2,}/\r\r/e " condense lines http://vim.wikia.com/wiki/Remove_unwanted_empty_lines
