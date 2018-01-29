@@ -71,5 +71,5 @@ endfunction
 autocmd BufWritePre * call TrimWhiteSpace()
 
 " FZF
-nmap <BS> :Buffers<CR>
+nmap <BS> :History<CR>
 nmap <CR> :Files<CR>
