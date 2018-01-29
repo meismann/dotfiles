@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'kien/ctrlp.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'Lokaltog/vim-powerline'
+Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'mustache/vim-mustache-handlebars'
