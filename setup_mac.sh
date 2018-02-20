@@ -33,8 +33,6 @@ apps=(
   flash-player
   sublime-text
   gimp
-
-  # these will always be English
   alfred
   bettertouchtool
   timeedition
@@ -44,8 +42,6 @@ apps=(
   libreoffice
   slack
   clipy
-
-  # these will automatically be German
   virtualbox
   skype
   google-chrome
@@ -53,12 +49,11 @@ apps=(
   transmission
   sequel-pro
   opera
-  owncloud
-
-  # these need an explicit German localisation
+  nextcloud
   firefox
   thunderbird
   adobe-acrobat-reader
+  telegram
 )
 
 # Install apps to /Applications
