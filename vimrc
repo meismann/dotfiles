@@ -3,16 +3,20 @@ filetype off                  " required
 
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'kien/ctrlp.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'mustache/vim-mustache-handlebars'
-" Plug 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'w0rp/ale'
+Plug 'chiel92/vim-autoformat'
+Plug 'kana/vim-textobj-user' " Dependency of vim-textobj-rubyblock
+Plug 'nelstrom/vim-textobj-rubyblock'
 call plug#end()
 
 syntax enable
@@ -73,3 +77,17 @@ autocmd BufWritePre * call TrimWhiteSpace()
 " FZF
 nmap <BS> :History<CR>
 nmap <CR> :Files<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" Autoformat
+noremap <c-a> :Autoformat<CR>
+
+" textobject-ruby
+runtime macros/matchit.vim
+
+" ALE
+let g:ale_lint_on_text_changed = 'never'
