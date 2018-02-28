@@ -77,6 +77,7 @@ autocmd BufWritePre * call TrimWhiteSpace()
 " FZF
 nmap <BS> :History<CR>
 nmap <CR> :Files<CR>
+nmap <TAB> :GFiles?<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
