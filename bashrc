@@ -52,6 +52,8 @@ __git_shortcut gbb bisect bad
 __git_shortcut gbk bisect skip
 __git_shortcut gbr bisect reset
 __git_shortcut gw show
+# https://blog.andrewray.me/a-better-git-blame/
+__git_shortcut gp log -p -M --follow --stat --
 
 # Create dir and enter
 mcd ()
@@ -93,17 +95,17 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
-export PS1='▶▶▶▶▶▶▶▶▶  \[\033[0;33m\]\w\[\033[00m\]\[\033[01;00m\]$(parse_git_branch): ' 
+export PS1='▶▶▶▶▶▶▶▶▶  \[\033[0;33m\]\w\[\033[00m\]\[\033[01;00m\]$(parse_git_branch): '
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 
 # add OS specific additions
-case $OSTYPE in 
+case $OSTYPE in
   darwin*)
     additions_dir='mac_additions'
-    ;; 
+    ;;
   linux*)
     additions_dir='linux_additions'
     ;;
