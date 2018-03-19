@@ -54,6 +54,7 @@ __git_shortcut gbr bisect reset
 __git_shortcut gw show
 # https://blog.andrewray.me/a-better-git-blame/
 __git_shortcut gp log -p -M --follow --stat --
+__git_shortcut gdh diff HEAD
 
 # Create dir and enter
 mcd ()
