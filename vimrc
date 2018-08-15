@@ -92,3 +92,21 @@ runtime macros/matchit.vim
 
 " ALE
 let g:ale_lint_on_text_changed = 'never'
+nmap <TAB> :GFiles?<CR>
+
+" For Pry: (https://github.com/rking/pry-de/blob/master/vim/ftplugin/ruby_pry.vim)
+iabbr bpry require'pry';binding.pry
+nnoremap <Leader>bp orequire'pry';binding.pry<esc>:w<cr>
+
+" Add frozen_string_literal to file's head
+function! Add_frozen_string_literal_true()
+  let save_cursor = getpos(".")
+  normal ggO# frozen_string_literal: true
+  normal o
+  normal cc
+  call setpos('.', save_cursor)
+  normal jj
+endfunction
+nnoremap <Leader>fsl :call Add_frozen_string_literal_true()<cr>
+
+nnoremap Q <Nop>
