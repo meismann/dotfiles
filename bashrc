@@ -26,6 +26,7 @@ __git_shortcut () {
 __git_shortcut gc commit -m
 __git_shortcut gca commit -am
 __git_shortcut gps push
+__git_shortcut gpsf push --force-with-lease
 __git_shortcut gpl pull
 __git_shortcut ga add
 __git_shortcut gaa add -A
@@ -37,6 +38,7 @@ __git_shortcut gr rebase
 __git_shortcut go checkout
 __git_shortcut gb branch
 __git_shortcut gob checkout -b
+__git_shortcut gom checkout master
 __git_shortcut gh help
 __git_shortcut gf fetch
 __git_shortcut gm merge
