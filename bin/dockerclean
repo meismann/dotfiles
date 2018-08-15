@@ -1,0 +1,6 @@
+echo "Remove unused volumes…"
+docker volume rm $(docker volume ls -qf dangling=true)
+echo "… done."
+echo "Remove stale images…"
+docker rmi $(docker images | grep '^<none>' | awk '{print $3}')
+echo "…done."
