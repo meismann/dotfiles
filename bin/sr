@@ -1,22 +1,22 @@
 #!/bin/bash
-old_string=$1
+
 case $# in
   1 )
-    ag "$old_string"
+    ag "$1"
   ;;
   2 )
     if [ -d "$2" ]
     then
-      echo "Searching for '$old_string' in $2"
-      ag -Q "$old_string" "$2"
+      echo "Searching for '$1' in $2"
+      ag "$1" "$2"
     else
-      echo "Replacing '$old_string' with '$2' everywhere"
-      ag -lQ "$old_string" | xargs sed -i '' "s/$old_string/$2/g"
+      echo "Replacing '$1' with '$2' everywhere"
+      ag "$1" --nogroup | awk '{print substr($1,1,index($1,":")-1);}' | xargs -I {} sed -i '' -e "s/$1/$2/g" {}
     fi
   ;;
   3 )
-    echo "Replacing '$old_string' with '$3' in $2"
-    ag -lQ "$old_string" "$2" | xargs sed -i '' "s/$old_string/$3/g"
+    echo "Replacing '$1' with '$3' in $2"
+      ag "$1" --nogroup "$2" | awk '{print substr($1,1,index($1,":")-1);}' | xargs -I {} sed -i '' -e "s/$1/$2/g" {}
   ;;
   *)
     echo "Eingabe so:"
@@ -25,4 +25,3 @@ case $# in
     echo "sr search_string search_dir replace_string"
   ;;
 esac
-
