@@ -1,6 +1,4 @@
 alias r='bin/rspec'
-alias p='powder respawn'
 alias pr='touch tmp/restart.txt'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias w="cd $HOME/werkbank"
-

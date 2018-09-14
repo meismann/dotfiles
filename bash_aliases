@@ -16,6 +16,7 @@ alias rs='bin/rspec'
 alias rk='bin/rake'
 alias rl='bin/rails'
 alias rt='bin/rake test'
+alias p='ping db.de'
 
 # Kunden:
 alias ds='BRANCH_NAME=$(git symbolic-ref --short HEAD) cap staging deploy; say fertig'
