@@ -1,9 +1,7 @@
 alias s='sudo'
 alias ll='ls -lah'
-alias c='bundle exec cucumber'
 alias b='bundle'
 alias be='bundle exec'
-alias bl='bundle list'
 alias bo='bundle open'
 alias bu='bundle update'
 alias m='bundle exec rake db:migrate && bundle exec rake db:migrate RAILS_ENV=test'
@@ -11,12 +9,7 @@ alias i='bundle exec rake i18n:js:export'
 alias gam='git commit --amend -C HEAD -a'
 alias pse='ps -e | grep'
 alias d=docker
+alias dc=docker-compose
 alias rm='rm -fr'
-alias rs='bin/rspec'
-alias rk='bin/rake'
-alias rl='bin/rails'
-alias rt='bin/rake test'
 alias p='ping db.de'
-
-# Kunden:
-alias ds='BRANCH_NAME=$(git symbolic-ref --short HEAD) cap staging deploy; say fertig'
+alias gg='git log --graph --format="%C(white)%h:%Creset %s (%C(cyan)%an, %ar%Creset)%d"'
