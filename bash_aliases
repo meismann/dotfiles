@@ -13,4 +13,4 @@ alias p='ping db.de'
 alias pse='ps -e | grep'
 alias rm='rm -fr'
 alias s='sudo'
-alias t=cd /tmp
+alias t='cd /tmp'
