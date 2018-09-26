@@ -1,5 +1,0 @@
-TRACKS_DIR=$HOME/werkbank/tracks
-cd $TRACKS_DIR
-rm -f tmp/pids/*
-rails s -p 5000 -e production -d
-
