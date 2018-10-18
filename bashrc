@@ -125,6 +125,7 @@ done
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Open the browser with Github's Pull Request form
 pr() {
   to_branch=$1
   if [ -z $to_branch ]; then
