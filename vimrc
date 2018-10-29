@@ -76,8 +76,7 @@ autocmd BufWritePre * call TrimWhiteSpace()
 
 " FZF
 nmap <BS> :History<CR>
-nmap <CR> :Files<CR>
-nmap <TAB> :GFiles?<CR>
+nmap <CR> :GFiles<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -92,7 +91,6 @@ runtime macros/matchit.vim
 
 " ALE
 let g:ale_lint_on_text_changed = 'never'
-nmap <TAB> :GFiles?<CR>
 
 " For Pry: (https://github.com/rking/pry-de/blob/master/vim/ftplugin/ruby_pry.vim)
 iabbr bpry require'pry';binding.pry
