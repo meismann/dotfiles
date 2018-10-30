@@ -1,3 +1,6 @@
+echo "Pruning everything that does not run away…"
+docker system prune -a
+echo "… done."
 echo "Remove unused volumes…"
 docker volume rm $(docker volume ls -qf dangling=true)
 echo "… done."
