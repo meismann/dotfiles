@@ -17,7 +17,6 @@ formulas=(
   youtube-dl
   mysql
   wget
-  chromedriver
   npm
   fzf
 )
@@ -25,11 +24,13 @@ formulas=(
 echo 'Brewing formulas…'
 brew install ${formulas[@]}
 # To install useful key bindings and fuzzy completion:
-$(brew --prefix)/opt/fzf/install
+$(brew --prefix)/opt/fzf/install --key-bindings --completion --update-rc
 
 echo 'Installing apps with Homebrew Cask…'
 # To get versions in German language:
 apps=(
+  firefox
+  thunderbird
   flash-player
   sublime-text
   gimp
@@ -37,23 +38,19 @@ apps=(
   bettertouchtool
   timeedition
   github
-  pg-commander
-  pgadmin3
+  # pg-commander
+  # pgadmin3
   libreoffice
   slack
   clipy
-  virtualbox
-  skype
   google-chrome
+  chromedriver
   vlc
   transmission
   sequel-pro
-  opera
   nextcloud
-  firefox
-  thunderbird
-  adobe-acrobat-reader
   telegram
+  virtualbox
 )
 
 # Install apps to /Applications
