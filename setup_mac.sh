@@ -38,6 +38,7 @@ apps=(
   bettertouchtool
   timeedition
   github
+  etcher
   # pg-commander
   # pgadmin3
   libreoffice
