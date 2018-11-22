@@ -1,0 +1,13 @@
+last_spec_file=$(find spec -name "*_spec.rb" -print0 | xargs -0 ls -1 -t | head -n 1)
+
+if [[ -z $last_spec_file ]]; then
+  exit 'No file'
+fi
+
+if [[ -e script/test.sh ]]; then
+  echo "Ausführen: script/test.sh $last_spec_file"
+  script/test.sh $last_spec_file
+else
+  echo "Ausführen: rspec $last_spec_file"
+  rspec $last_spec_file
+fi
