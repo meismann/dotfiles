@@ -4,10 +4,21 @@ if [[ -z $last_spec_file ]]; then
   exit 'No file'
 fi
 
-if [[ -e script/test.sh ]]; then
-  echo "Ausführen: script/test.sh $last_spec_file"
-  script/test.sh $last_spec_file
-else
-  echo "Ausführen: rspec $last_spec_file"
-  rspec $last_spec_file
+lines=$1
+if [[ $lines && $lines != :* ]]; then
+  lines=":$lines"
 fi
+
+if [[ -e script/test.sh ]]; then
+  command="script/test.sh"
+else
+  if [[ $last_spec_file == spec/requests* ]]; then
+    command="rspec -t api_requests"
+  else
+    command=rspec
+  fi
+fi
+
+echo "Ausführen: $command $last_spec_file$lines"
+$command $last_spec_file$lines
+echo "Das war: $command $last_spec_file$lines"
