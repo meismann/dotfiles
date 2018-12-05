@@ -75,7 +75,6 @@ bcd ()
 export POSTGRES=true
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export PATH=$PATH:/usr/local/share/npm/bin
-export PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 export HISTFILESIZE=2500
 export PGDATA=/usr/local/var/postgres
 
@@ -100,8 +99,6 @@ function parse_git_branch {
 }
 
 export PS1='▶▶▶▶▶▶▶▶▶  \[\033[0;33m\]\w\[\033[00m\]\[\033[01;00m\]$(parse_git_branch): '
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # add OS specific additions
 case $OSTYPE in
@@ -145,3 +142,7 @@ pr() {
   from_branch=$(git rev-parse --abbrev-ref HEAD)
   open "https://github.com/$to_user/$repo/pull/new/$to_user:$to_branch...$from_user:$from_branch"
 }
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
