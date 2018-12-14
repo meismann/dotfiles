@@ -13,9 +13,9 @@ if [[ -e script/test.sh ]]; then
   command="script/test.sh"
 else
   if [[ $last_spec_file == spec/requests* ]]; then
-    command="rspec -t api_requests"
+    command="bundle exec rspec -t api_requests"
   else
-    command=rspec
+    command='bundle exec rspec'
   fi
 fi
 
