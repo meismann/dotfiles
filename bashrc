@@ -143,3 +143,4 @@ pr() {
   open "https://github.com/$to_user/$repo/pull/new/$to_user:$to_branch...$from_user:$from_branch"
 }
 
+eval "$(rbenv init -)"
