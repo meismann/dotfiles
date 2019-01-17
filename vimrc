@@ -13,7 +13,6 @@ Plug 'vim-ruby/vim-ruby'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'w0rp/ale'
 Plug 'chiel92/vim-autoformat'
 Plug 'kana/vim-textobj-user' " Dependency of vim-textobj-rubyblock
 Plug 'nelstrom/vim-textobj-rubyblock'
@@ -46,6 +45,7 @@ set suffixesadd+=.js
 set suffixesadd+=.rb
 set suffixesadd+=.js.coffee
 set suffixesadd+=.coffee
+set scrolloff=5          "Start scrolling when 10 lines close to the bottom
 
 " switching easily between panes
 nnoremap <c-l> <c-w><c-l>
