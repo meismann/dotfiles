@@ -1,0 +1,5 @@
+# Open the browser at repo's Github page
+
+origin=$(git config --get remote.origin.url)
+path=$(echo $origin | sed -e 's/.*[:]\(.*\)\.git$/\1/')
+open "https://github.com/$path"
