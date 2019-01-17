@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'kchmck/vim-coffee-script'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'mustache/vim-mustache-handlebars'
@@ -57,6 +58,7 @@ nnoremap <c-h> <c-w><c-h>
 let &t_Co=256
 
 let mapleader=' '
+let g:airline_theme='ayu_mirage'
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
