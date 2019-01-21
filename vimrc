@@ -64,7 +64,7 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
 "" Whitespaces
 function! TrimWhiteSpace()
-  if &ft =~ 'yaml'
+  if &ft =~ 'yaml' || &ft =~ 'text'
     " Dont strip if file type is Yaml
     return
   endif
@@ -93,9 +93,6 @@ noremap <c-a> :Autoformat<CR>
 " textobject-ruby
 runtime macros/matchit.vim
 
-" ALE
-let g:ale_lint_on_text_changed = 'never'
-
 " For Pry: (https://github.com/rking/pry-de/blob/master/vim/ftplugin/ruby_pry.vim)
 iabbr bpry require'pry';binding.pry
 nnoremap <Leader>bp orequire'pry';binding.pry<esc>:w<cr>
@@ -112,3 +109,5 @@ endfunction
 nnoremap <Leader>fsl :call Add_frozen_string_literal_true()<cr>
 
 nnoremap Q <Nop>
+
+imap <Tab> <C-P>
