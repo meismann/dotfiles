@@ -48,6 +48,7 @@ set suffixesadd+=.rb
 set suffixesadd+=.js.coffee
 set suffixesadd+=.coffee
 set scrolloff=5          "Start scrolling when 10 lines close to the bottom
+set hidden               " Hides buffers instead of closing them
 
 " switching easily between panes
 nnoremap <c-l> <c-w><c-l>
@@ -99,19 +100,22 @@ runtime macros/matchit.vim
 
 " For Pry: (https://github.com/rking/pry-de/blob/master/vim/ftplugin/ruby_pry.vim)
 iabbr bpry require'pry';binding.pry
-nnoremap <Leader>bp orequire'pry';binding.pry<esc>:w<cr>
+nnoremap <Leader>bp jIrequire'pry';binding.pry<CR><esc>:w<cr>
 
 " Add frozen_string_literal to file's head
 function! Add_frozen_string_literal_true()
   let save_cursor = getpos(".")
-  normal ggO# frozen_string_literal: true
-  normal o
-  normal cc
+  normal ggI# frozen_string_literal: true
+  execute "normal! a\n"
+  normal O
   call setpos('.', save_cursor)
   normal jj
 endfunction
 nnoremap <Leader>fsl :call Add_frozen_string_literal_true()<cr>
 
-nnoremap Q <Nop>
-
-imap <Tab> <C-P>
+nnoremap Q q
+nnoremap W w
+" Paste and indent properly
+nnoremap p p=']
+nnoremap P P=']
+nnoremap <c-p> p
