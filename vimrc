@@ -73,13 +73,9 @@ function! TrimWhiteSpace()
     " Dont strip if file type is Yaml
     return
   endif
-  let save_cursor = getpos(".")
-  :silent! %s/\s\+$//e " remove trailing whitespaces http://vim.wikia.com/wiki/Remove_unwanted_spaces
-  :silent! %s/\n\{2,}/\r\r/e " condense lines http://vim.wikia.com/wiki/Remove_unwanted_empty_lines
-  :silent! 0;/^\%(\_s*\S\)\@!/,$d " remove trailing blank lines https://stackoverflow.com/questions/7495932/how-can-i-trim-blank-lines-at-the-end-of-file-in-vim
-  call setpos('.', save_cursor)
+  silent! execute "!(git stripspace < " . bufname("%") . ") > " . bufname("%") . ".tmp && mv " . bufname("%") . ".tmp " . bufname("%")
 endfunction
-autocmd BufWritePre * call TrimWhiteSpace()
+autocmd BufWriteCmd * try | undojoin | w | call TrimWhiteSpace() | e | catch /^Vim\%((\a\+)\)\=:E790/ | w | endtry
 
 " FZF
 nmap <BS> :History<CR>
