@@ -17,6 +17,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'chiel92/vim-autoformat'
 Plug 'kana/vim-textobj-user' " Dependency of vim-textobj-rubyblock
 Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 syntax enable
@@ -59,6 +60,9 @@ let &t_Co=256
 
 let mapleader=' '
 let g:airline_theme='ayu_mirage'
+" Indent Guides
+let g:indentLine_color_term = 236
+let g:indentLine_char = '┆'
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
