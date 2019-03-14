@@ -2,6 +2,7 @@ set nocompatible                " choose no compatibility with legacy vi
 filetype off                  " required
 
 " https://github.com/junegunn/vim-plug
+" May need a hack explained here: https://www.reddit.com/r/neovim/comments/3r3nn8/how_to_get_vimplug_to_autoload/
 call plug#begin('~/.vim/plugged')
 Plug 'kchmck/vim-coffee-script'
 Plug 'Lokaltog/vim-easymotion'
@@ -69,16 +70,6 @@ let g:indentLine_char = '┆'
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
-"" Whitespaces
-function! TrimWhiteSpace()
-  if &ft =~ 'yaml' || &ft =~ 'text'
-    " Dont strip if file type is Yaml
-    return
-  endif
-  silent! execute "!(git stripspace < " . bufname("%") . ") > " . bufname("%") . ".tmp && mv " . bufname("%") . ".tmp " . bufname("%")
-endfunction
-autocmd BufWriteCmd * try | undojoin | w | call TrimWhiteSpace() | e | catch /^Vim\%((\a\+)\)\=:E790/ | w | endtry
-
 " FZF
 nmap <BS> :History<CR>
 nmap <CR> :GFiles<CR>
@@ -117,6 +108,24 @@ nnoremap W w
 nnoremap p p=']
 nnoremap P P=']
 nnoremap <c-p> p
+
+" Autocommands:
+
+"" Whitespaces
+function! TrimWhiteSpace()
+  if &ft =~ 'yaml' || &ft =~ 'text'
+    " Dont strip if file type is Yaml
+    return
+  endif
+  silent! execute "!(git stripspace < " . bufname("%") . ") > " . bufname("%") . ".tmp && mv " . bufname("%") . ".tmp " . bufname("%")
+  let l:winview = winsaveview()
+  e
+  call winrestview(l:winview)
+endfunction
+autocmd BufWriteCmd * try | undojoin | w | call TrimWhiteSpace() | catch /^Vim\%((\a\+)\)\=:E790/ | w | endtry
+
+colorscheme peachpuff
+
 augroup CursorLine
   au!
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
