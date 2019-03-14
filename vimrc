@@ -43,12 +43,14 @@ set wrap linebreak nolist
 set wildmenu
 set wildignore+=bower_components,node_modules,tmp,dist,*.jpg,*.png,*.woff,*.eot,*.ttf
 set number
+set rnu
 set suffixesadd+=.js
 set suffixesadd+=.rb
 set suffixesadd+=.js.coffee
 set suffixesadd+=.coffee
 set scrolloff=5          "Start scrolling when 10 lines close to the bottom
 set hidden               " Hides buffers instead of closing them
+set cursorline
 
 " switching easily between panes
 nnoremap <c-l> <c-w><c-l>
@@ -115,3 +117,12 @@ nnoremap W w
 nnoremap p p=']
 nnoremap P P=']
 nnoremap <c-p> p
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+highlight CursorlineNR cterm=bold term=bold ctermbg=white
+highlight Cursorline cterm=none term=none
+
+highlight Search ctermbg=lightgreen
