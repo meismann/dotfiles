@@ -27,3 +27,6 @@ Temporary Items
 *.swo
 
 .pow*
+
+# Sage:
+host_app/v3
