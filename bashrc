@@ -98,7 +98,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
-export PS1='▶▶▶▶▶▶▶▶▶  \[\033[0;33m\]\w\[\033[00m\]\[\033[01;00m\]$(parse_git_branch): '
+export PS1='\e[42m$(date "+%H:%M:%S")\e[0m \[\033[0;33m\]\w\[\033[00m\]\[\033[01;00m\]$(parse_git_branch): '
 
 # add OS specific additions
 case $OSTYPE in
