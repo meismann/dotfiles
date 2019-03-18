@@ -9,7 +9,7 @@ sudo apt-get install apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 sudo apt-get update
-sudo apt-get --yes install vim git tree silversearcher-ag postgresql pgadmin3 \
+sudo apt-get --yes install vim neovim git tree silversearcher-ag postgresql pgadmin3 \
   virtualbox vlc mysql-server mysql-client mysql-workbench xclip gnome-do gimp \
   synaptic nodejs youtube-dl chromium-browser curl gitg libmysqlclient-dev \
   sublime-text npm
