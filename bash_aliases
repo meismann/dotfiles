@@ -14,3 +14,4 @@ alias pse='ps -e | grep'
 alias rm='rm -fr'
 alias s='sudo'
 alias t='cd /tmp'
+alias vim=nvim
