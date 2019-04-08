@@ -19,6 +19,7 @@ Plug 'chiel92/vim-autoformat'
 Plug 'kana/vim-textobj-user' " Dependency of vim-textobj-rubyblock
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'Yggdroot/indentLine'
+Plug 'blueyed/vim-diminactive'
 call plug#end()
 
 syntax enable
@@ -50,7 +51,6 @@ set suffixesadd+=.rb
 set suffixesadd+=.js.coffee
 set suffixesadd+=.coffee
 set scrolloff=5          "Start scrolling when 10 lines close to the bottom
-set hidden               " Hides buffers instead of closing them
 set cursorline
 
 " switching easily between panes
@@ -88,7 +88,6 @@ noremap <c-a> :Autoformat<CR>
 runtime macros/matchit.vim
 
 " For Pry: (https://github.com/rking/pry-de/blob/master/vim/ftplugin/ruby_pry.vim)
-iabbr bpry require'pry';binding.pry
 nnoremap <Leader>bp jIrequire'pry';binding.pry<CR><esc>:w<cr>
 
 " Add frozen_string_literal to file's head
@@ -128,10 +127,10 @@ colorscheme peachpuff
 
 augroup CursorLine
   au!
-  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
+  au VimEnter,WinEnter,BufWinEnter * setlocal relativenumber
+  au WinLeave * setlocal norelativenumber
 augroup END
 highlight CursorlineNR cterm=bold term=bold ctermbg=white
 highlight Cursorline cterm=none term=none
-
+highlight ColorColumn ctermbg=237
 highlight Search ctermbg=lightgreen
