@@ -65,8 +65,9 @@ let &t_Co=256
 let mapleader=' '
 let g:airline_theme='ayu_mirage'
 " Indent Guides
-let g:indentLine_color_term = 236
-let g:indentLine_char = '┆'
+let g:indentLine_color_term = 240
+let g:indentLine_char = '⋮'
+let g:indentLine_enabled = 1
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
@@ -128,7 +129,9 @@ colorscheme peachpuff
 augroup CursorLine
   au!
   au VimEnter,WinEnter,BufWinEnter * setlocal relativenumber
+  au VimEnter,WinEnter,BufWinEnter * IndentLinesEnable
   au WinLeave * setlocal norelativenumber
+  au WinLeave * IndentLinesDisable
 augroup END
 highlight CursorlineNR cterm=bold term=bold ctermbg=white
 highlight Cursorline cterm=none term=none
