@@ -64,6 +64,13 @@ let &t_Co=256
 
 let mapleader=' '
 let g:airline_theme='ayu_mirage'
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+if winwidth(0) > 80
+  let g:airline_section_z = airline#section#create(['windowswap', 'obsession', 'linenr', 'maxlinenr', ' :%3v'])
+else
+  let g:airline_section_z = airline#section#create(['linenr', 'maxlinenr', ':%3v'])
+endif
 " Indent Guides
 let g:indentLine_color_term = 240
 let g:indentLine_char = '⋮'
@@ -102,8 +109,6 @@ function! Add_frozen_string_literal_true()
 endfunction
 nnoremap <Leader>fsl :call Add_frozen_string_literal_true()<cr>
 
-nnoremap Q q
-nnoremap W w
 " Paste and indent properly
 nnoremap p p=']
 nnoremap P P=']
