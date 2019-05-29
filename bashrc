@@ -72,6 +72,11 @@ bcd ()
   cd $(bundle show $gem)
 }
 
+gcl ()
+{
+  git clone $1 && cd $(basename $_ .git)
+}
+
 export POSTGRES=true
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export PATH=$PATH:/usr/local/share/npm/bin
