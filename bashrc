@@ -57,6 +57,7 @@ __git_shortcut gw show
 # https://blog.andrewray.me/a-better-git-blame/
 __git_shortcut gp log -p -M --follow --stat --
 __git_shortcut gdh diff HEAD
+__git_shortcut gri rebase -i -
 
 # Create dir and enter
 mcd ()
