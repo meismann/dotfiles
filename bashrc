@@ -94,9 +94,6 @@ else
     . /usr/share/bash-completion/bash_completion
 fi
 
-T_PS1_SHOWDIRTYSTATE=true
-export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-
 function parse_git_dirty {
   [[ $(git status --porcelain 2> /dev/null) != "" ]] && echo "*"
 }
