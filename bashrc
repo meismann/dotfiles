@@ -83,6 +83,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export PATH=$PATH:/usr/local/share/npm/bin
 export HISTFILESIZE=2500
 export PGDATA=/usr/local/var/postgres
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 if [[ -e /usr/local/etc/bash_completion.d/git-completion.bash ]]
 then
