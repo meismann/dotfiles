@@ -78,6 +78,7 @@ gcl ()
   git clone $1 && cd $(basename $_ .git)
 }
 
+export CLICOLOR=1
 export POSTGRES=true
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export PATH=$PATH:/usr/local/share/npm/bin
@@ -122,8 +123,6 @@ do
   source $file
 done
 
-[ -e $HOME/.sagerc ] && source $HOME/.sagerc
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Open the browser with Github's Pull Request form
@@ -147,4 +146,6 @@ pr() {
   open "https://github.com/$to_user/$repo/pull/new/$to_user:$to_branch...$from_user:$from_branch"
 }
 
-eval "$(rbenv init -)"
+if [[ -x $(which rbenv) ]]; then
+  eval "$(rbenv init -)"
+fi

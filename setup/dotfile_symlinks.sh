@@ -25,7 +25,7 @@ prepare_setup_of() {
   create_backup $file_name || remove_symlink $file_name
 }
 
-repo_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+repo_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && git rev-parse --show-toplevel )
 
 cd
 
@@ -40,4 +40,3 @@ done
 
 echo "Sourcing the new .bash_profile…"
 source $HOME/.bash_profile && echo "…done."
-
