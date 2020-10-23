@@ -1,3 +1,7 @@
+" This is for Neovim to pick up the ~/.vim directory correctly
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+
 set nocompatible                " choose no compatibility with legacy vi
 filetype off                  " required
 
