@@ -6,19 +6,20 @@ if test ! $(which brew); then
 fi
 
 formulas=(
-  vim
-  git
-  tree
   ag
-  postgres
-  imagemagick
-  # Dependency of RVM
-  gpg
-  youtube-dl
-  mysql
-  wget
-  npm
+  ffmpeg
   fzf
+  git
+  gpg
+  imagemagick
+  mysql
+  npm
+  nvim
+  postgres
+  tree
+  vim
+  wget
+  youtube-dl
 )
 
 echo 'Brewing formulas…'
@@ -29,29 +30,29 @@ $(brew --prefix)/opt/fzf/install --key-bindings --completion --update-rc
 echo 'Installing apps with Homebrew Cask…'
 # To get versions in German language:
 apps=(
-  firefox
-  thunderbird
-  flash-player
-  sublime-text
-  gimp
   alfred
+  balenaetcher
   bettertouchtool
-  timeedition
+  chromedriver
+  clipy
+  firefox
+  flash-player
+  gimp
   github
-  etcher
+  google-chrome
+  libreoffice
+  nextcloud
   # pg-commander
   # pgadmin3
-  libreoffice
-  slack
-  clipy
-  google-chrome
-  chromedriver
-  vlc
-  transmission
   sequel-pro
-  nextcloud
+  slack
+  sublime-text
   telegram
+  thunderbird
+  timeedition
+  transmission
   virtualbox
+  vlc
 )
 
 # Install apps to /Applications
