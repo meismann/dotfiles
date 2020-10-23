@@ -21,7 +21,7 @@
 	editor = vim
 	filemode = false
 [user]
-	email = martin.eismann@sage.com
+	email = softwerk@eismann.cc
 	name = Martin Eismann
 [branch]
 	autosetuprebase = always
