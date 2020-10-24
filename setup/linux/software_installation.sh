@@ -4,11 +4,11 @@ packages=(
   gimp
   git
   gitg
-  gnome-do
+  # gnome-do
   libmysqlclient-dev
   mysql-client
   mysql-server
-  mysql-workbench
+  # mysql-workbench
   neovim
   nodejs
   npm
@@ -23,6 +23,26 @@ packages=(
   vlc
   xclip
   youtube-dl
+
+  # Dependencies of rbenv-build:
+  autoconf
+  bison
+  build-essential
+  libffi-dev
+  libgdbm-dev
+  libncurses5-dev
+  libreadline-dev
+  libreadline-dev
+  libssl-dev
+  libyaml-dev
+  zlib1g-dev
+
+  # Dependencies of pdf-crop-margins
+  ghostscript
+  poppler-utils
+  python3-pip
+  python3-setuptools
+  python3-tk
 )
 
 # Prepare apt-get for Sublime Text
@@ -34,9 +54,19 @@ sudo apt-get install apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 sudo apt-get update
-sudo apt-get --yes install ${packages[@]}
+sudo apt-get --yes install ${packages[@]} || exit 1
 
 # Remove Amazon shit:
 sudo apt-get --yes remove unity-webapps-common
 
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+echo 'Installing rbenv and ruby-build plugin…'
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash \
+  && '… done installing rbenv etc.'
+
+echo 'Installing pdf-crop-margins…' \
+  && pip3 install pdfCropMargins[gui] --user --upgrade \
+  && '… done installing pdf-crop-margins.'

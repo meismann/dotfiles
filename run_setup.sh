@@ -27,6 +27,8 @@ install_basic_linux_packages() {
   echo 'Installing basic Linux packages…'
   sudo apt-get update
   sudo apt-get --yes install git xclip curl
+  git config --global user.email "softwerk@eismann.cc"
+  git config --global user.name "Martin Eismann"
   echo '… done installing basic Linux packages.'
 }
 
@@ -51,6 +53,8 @@ mkdir -p $WERKBANK_DIR
 if [[ ! -d $DOTFILES_REPO_DIR ]]; then
   git clone $DOTFILES_REPO_HTTPS_URL $DOTFILES_REPO_DIR \
     || (echo 'Cloning dotfiles failed!' && exit 1)
+else
+  cd $DOTFILES_REPO_DIR && git pull || exit 1
 fi
 
 echo 'Setting up SSH key …' \
