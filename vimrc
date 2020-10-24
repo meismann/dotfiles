@@ -126,7 +126,7 @@ function! TrimWhiteSpace()
     " Dont strip if file type is Yaml
     return
   endif
-  silent! execute "!(git stripspace < " . bufname("%") . ") > " . bufname("%") . ".tmp && mv " . bufname("%") . ".tmp " . bufname("%")
+  silent! execute "buff=$(git stripspace < " . bufname("%") . ") && echo $buff > " . bufname("%")
   let l:winview = winsaveview()
   e
   call winrestview(l:winview)
