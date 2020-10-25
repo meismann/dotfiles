@@ -1,7 +1,6 @@
 formulas=(
   ag
   ffmpeg
-  fzf
   git
   gpg
   imagemagick
@@ -50,11 +49,7 @@ echo 'Brewing formulas…' \
   && echo '… done brewing formulas.' \
   || echo '… some formular installations failed, maybe due to outdated existing versions.'
 
-echo 'Running FZF after-install hooks…' \
-  `# To install useful key bindings and fuzzy completion` \
-  && $(brew --prefix)/opt/fzf/install --key-bindings --completion --update-rc \
-  && echo '… done running FZF after-install hooks.' \
-  && echo 'Installing apps with Homebrew Cask…' \
+echo 'Installing apps with Homebrew Cask…' \
   && brew cask install --language=de ${apps[@]} \
   && echo '…done installing apps with Homebrew Cask.' \
   || echo '… some Cask installations failed, maybe due to outdated existing versions.'
