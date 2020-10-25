@@ -66,7 +66,3 @@ echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash \
   && '… done installing rbenv etc.'
-
-echo 'Installing pdf-crop-margins…' \
-  && pip3 install pdfCropMargins[gui] --user --upgrade \
-  && '… done installing pdf-crop-margins.'

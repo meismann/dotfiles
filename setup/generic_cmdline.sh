@@ -19,3 +19,8 @@ latest_ruby_version=$(rbenv install -l | grep -E '^[0-9.]{3,}' | sort | tail -n 
   && rbenv global $latest_ruby_version \
   && eval "$(rbenv init -)" \
   && gem install bundler
+
+# From https://pypi.org/project/pdfCropMargins/
+echo 'Installing pdf-crop-margins…' \
+  && pip3 install pdfCropMargins[gui] --user --upgrade \
+  && '… done installing pdf-crop-margins.'

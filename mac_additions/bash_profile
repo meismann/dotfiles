@@ -1,2 +1,2 @@
 export BUNDLER_EDITOR="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-
+export PATH=$PATH:~/Library/Python/3.9/bin
