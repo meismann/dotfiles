@@ -27,7 +27,10 @@ install_basic_linux_packages() {
   echo 'Installing basic Linux packages…'
   sudo apt-get update
   sudo apt-get --yes install git xclip curl
-  git config --global user.email "softwerk@eismann.cc"
+  # Spam protection
+  useremail='softwerk@'
+  useremail=$useremail"eismann.cc"
+  git config --global user.email $useremail
   git config --global user.name "Martin Eismann"
   echo '… done installing basic Linux packages.'
 }
