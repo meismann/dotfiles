@@ -46,19 +46,10 @@
 	trustExitCode = true
 [alias]
   a = add
-  aa = add -A
   alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
-  # list branches sorted by last modified
   b = branch
-  bl = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
-  bb = bisect bad
-  bg = bisect good
-  bk = bisect skip
-  br = bisect reset
-  bs = bisect start
   c = commit -m
   ca = commit -am
-  cn = clean -f
   d = diff
   dh = diff HEAD
   f = fetch
@@ -68,15 +59,11 @@
   m = merge
   o = checkout
   # https://blog.andrewray.me/a-better-git-blame/
-  p = log -p -M --follow --stat --
   pl = pull
   ps = push -u
   psf = push --force-with-lease
   r = rebase
-  ri = rebase -i -
+  ri = rebase -i
   rth = reset --hard
-  s = status -s
   t = stash
-  ta = stash apply
-  tp = stash pop
   w = show
