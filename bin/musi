@@ -1,21 +1,14 @@
 cd $HOME/Music
+rm -fr /tmp/Music
+mkdir /tmp/Music
 
-# Erst mal nicht mehr vorhandene Ordner löschen
-rsync                           --delete -dtv -e "ssh -p 2222" "$dir" root@192.168.178.$1:/storage/emulated/0/Music/;
-
-# Und jetzt jeden Ordner einzeln syncen, weil rsync mit der langen Liste überfordert ist
 for dir in *
-do 
-  echo "dir= $dir";
-
+do
   case $dir in
-    "iTunes")
-    echo "Überspringe $dir";
-    continue
-    ;;
-    *)
-    rsync                           --delete -rtv -e "ssh -p 2222" "$dir" root@192.168.178.$1:/storage/emulated/0/Music/;
-    # rsync --iconv=utf-8-mac,utf-8 --delete -rtv -e "ssh -p 2222" "$dir" root@192.168.178.$1:/storage/emulated/0/Music/;
+    *@)
+      ln -s "$(pwd)/$dir" "/tmp/Music/$dir";
     ;;
   esac
 done
+
+rsync --delete --force -Lrtv -e "ssh -p 2222" /tmp/Music/ root@192.168.188.$1:/storage/emulated/0/Music/;
