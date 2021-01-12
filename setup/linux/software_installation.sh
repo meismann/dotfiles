@@ -18,6 +18,7 @@ packages=(
   sublime-text
   synaptic
   tree
+  wine
   vim
   virtualbox
   vlc
