@@ -54,7 +54,10 @@ sudo apt-get install apt-transport-https
 # Select the Stable channel:
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
-sudo apt-get update
+if [ -z "$(find /var/cache/apt/pkgcache.bin -mmin -60)" ]; then
+  # The main script (run_setup.sh) will have just run that in most cases
+  sudo apt-get update
+fi
 sudo apt-get --yes install ${packages[@]} || (echo 'Software install failed!' && exit 1)
 
 # Remove Amazon shit:
