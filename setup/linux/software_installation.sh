@@ -54,15 +54,16 @@ sudo apt-get install apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 sudo apt-get update
-sudo apt-get --yes install ${packages[@]} || exit 1
+sudo apt-get --yes install ${packages[@]} || (echo 'Software install failed!' && exit 1)
 
 # Remove Amazon shit:
 sudo apt-get --yes remove unity-webapps-common
 
 echo 'Installing rbenv and ruby-build plugin…'
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+export PATH="\
+$HOME/.rbenv/bin:\
+$HOME/.rbenv/shims:\
+$PATH"
+
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash \
-  && '… done installing rbenv etc.'
+  && echo '… done installing rbenv etc.'

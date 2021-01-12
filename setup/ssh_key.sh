@@ -8,7 +8,7 @@ copy_key_file_to_clipboard() {
   fi
 
   if [[ -x $(which xclip) ]]; then
-    xclip -sel clip < $PUBLIC_KEY_FILE
+    xclip -i -selection 'clipboard' < $PUBLIC_KEY_FILE
     return 0
   fi
 

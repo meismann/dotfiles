@@ -104,14 +104,6 @@ function parse_git_branch {
 export PS1='\e[42m$(date "+%H:%M:%S")\e[0m \[\033[0;33m\]\w\[\033[00m\]\[\033[01;00m\]$(parse_git_branch): '
 # /Bash prompt config
 
-# Init utilities
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-if [[ -x $(which rbenv) ]]; then
-  eval "$(rbenv init -)"
-fi
-# /Init utilities
-
 # OS specific additions
 sources=($HOME/werkbank/dotfiles/$os"_additions"/bash*)
 for file in "${sources[@]}"
@@ -119,4 +111,12 @@ do
   source $file
 done
 # /OS specific additions
+
+# Init utilities
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if [[ -x $(which rbenv) ]]; then
+  eval "$(rbenv init -)"
+fi
+# /Init utilities
 
