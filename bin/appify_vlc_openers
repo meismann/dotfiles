@@ -1,0 +1,14 @@
+#!/bin/bash
+
+VLC_OPENERS_DIR='/Applications/vlc_openers';
+mkdir -p "$VLC_OPENERS_DIR";
+
+for dir in $HOME/Music/*/; do 
+  vlc_opener_file="/tmp/play "$(basename "$dir");
+  cat <<VLC_OPENER > "$vlc_opener_file";
+#!/bin/bash
+open -a /Applications/VLC.app/Contents/MacOS/VLC "$dir" --args --playlist-autostart
+VLC_OPENER
+  cd "$VLC_OPENERS_DIR" && appify "$vlc_opener_file";
+  rm "$vlc_opener_file";
+done
