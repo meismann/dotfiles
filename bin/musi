@@ -11,4 +11,4 @@ do
   esac
 done
 
-rsync --delete --force -Lrtv -e "ssh -p 2222" /tmp/Music/ root@192.168.188.$1:/storage/emulated/0/Music/;
+rsync --delete --force -Lrtv -e "ssh -p 2222" /tmp/Music/ root@android-c701ac9649fb29ee:/storage/emulated/0/Music/;
