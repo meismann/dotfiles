@@ -1,0 +1,3 @@
+#!/bin/sh
+
+scp -P 2222 "$1" "root@android-c701ac9649fb29ee:/storage/emulated/0/$2"

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ssh -p 2222 root@android-c701ac9649fb29ee
