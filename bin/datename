@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-dateformat = ARGV.pop
+dateformat = '%Y-%M-%d %Hh%M.%S'
 
 ARGV.each do |rel_path_with_name|
   date_str = File.new(rel_path_with_name).mtime.strftime(dateformat)
