@@ -1,3 +1,8 @@
 #!/bin/sh
 
-ssh -p 2222 root@android-c701ac9649fb29ee
+ping -c 1 'android-c701ac9649fb29ee'
+remote_server=$( [[ $? == 0 ]] && echo 'android-c701ac9649fb29ee' || echo '192.168.43.1')
+
+echo "Connecting to $remote_server"
+
+ssh -p 2222 root@$remote_server

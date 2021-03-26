@@ -1,3 +1,8 @@
 #!/bin/sh
 
-scp -P 2222 "$1" "root@android-c701ac9649fb29ee:/storage/emulated/0/$2"
+ping -c 1 'android-c701ac9649fb29ee'
+remote_server=$( [[ $? == 0 ]] && echo 'android-c701ac9649fb29ee' || echo '192.168.43.1')
+
+echo "Connecting to $remote_server"
+
+scp -P 2222 "$1" "root@$remote_server:/storage/emulated/0/$2"

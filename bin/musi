@@ -1,6 +1,13 @@
+#!/bin/sh
+
 cd $HOME/Music
 rm -fr /tmp/Music
 mkdir /tmp/Music
+
+ping -c 1 'android-c701ac9649fb29ee'
+remote_server=$( [[ $? == 0 ]] && echo 'android-c701ac9649fb29ee' || echo '192.168.43.1')
+
+echo "Connecting to $remote_server"
 
 for dir in *
 do
@@ -11,4 +18,4 @@ do
   esac
 done
 
-rsync --delete --force -Lrtv -e "ssh -p 2222" /tmp/Music/ root@android-c701ac9649fb29ee:/storage/emulated/0/Music/;
+rsync --delete --force -Lrtv -e "ssh -p 2222" /tmp/Music/ root@$remote_server:/storage/emulated/0/Music/;
