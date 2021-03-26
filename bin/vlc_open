@@ -1,0 +1,3 @@
+# Open argument with running VLC instance or open new
+open -a /Applications/VLC.app/Contents/MacOS/VLC "$1" --args --playlist-autostart
+
