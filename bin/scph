@@ -5,4 +5,4 @@ remote_server=$( [[ $? == 0 ]] && echo 'android-c701ac9649fb29ee' || echo '192.1
 
 echo "Connecting to $remote_server"
 
-scp -P 2222 "root@$remote_server:/storage/emulated/0/$1" "$2"
+scp -r -P 2222 "root@$remote_server:/storage/emulated/0/$1" "$2"
