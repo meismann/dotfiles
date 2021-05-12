@@ -5,19 +5,24 @@ REPO=${1:-'/Volumes/Backup'}
 borg create \
   --progress \
   --error \
-  --exclude="Movies/Avatar/" \
   $REPO/borg::{now} \
-  Music \
+  "Bücher" \
+  "archiv bis 2021-04" \
   "geschäft" \
   "yaoshi de wyderherstllg.png" \
-  Pictures \
-  "archiv bis 2021-04" \
-  Nextcloud2 \
   Desktop \
-  Library/Mozilla \
-  Library/Thunderbird \
-  Wanderrouten \
   Documents \
-  "Bücher" \
-  Movies
+  Library/Application\ Support/Firefox \
+  Library/Thunderbird \
+  Movies \
+  Music \
+  Nextcloud2 \
+  Pictures \
+  Wanderrouten \
+  VirtualBox VMs \
+  tn.png \
+  vmshare \
+  werkbank \
+  yaoshi de wyderherstllg.png
 
+#  --exclude="Movies/Avatar/" \
