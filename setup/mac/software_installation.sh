@@ -1,6 +1,7 @@
 formulas=(
   ag
   ffmpeg
+  freac
   git
   gpg
   imagemagick
