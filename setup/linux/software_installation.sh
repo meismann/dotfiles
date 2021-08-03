@@ -44,6 +44,11 @@ packages=(
   python3-pip
   python3-setuptools
   python3-tk
+
+  # Dependencies of borg backup with mount (https://docs.borgbase.com/restore/mount/)
+  fuse 
+  libfuse-dev 
+  pkg-config
 )
 
 # Prepare apt-get for Sublime Text

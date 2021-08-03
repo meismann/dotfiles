@@ -28,7 +28,8 @@ apps=(
   github
   google-chrome
   libreoffice
-  nextcloud
+  macfuse # for borg mount
+  cask nextcloud
   # pg-commander
   # pgadmin3
   sequel-pro
@@ -51,6 +52,6 @@ echo 'Brewing formulas…' \
   || echo '… some formular installations failed, maybe due to outdated existing versions.'
 
 echo 'Installing apps with Homebrew Cask…' \
-  && brew cask install --language=de ${apps[@]} \
+  && brew install --cask --language=de ${apps[@]} \
   && echo '…done installing apps with Homebrew Cask.' \
   || echo '… some Cask installations failed, maybe due to outdated existing versions.'
