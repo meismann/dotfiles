@@ -1,4 +1,5 @@
 source $HOME/.bash_aliases
+source /etc/profile.d/vte.sh
 
 # Constants
 export CLICOLOR=1
@@ -82,7 +83,7 @@ then
   . /usr/local/etc/bash_completion.d/git-completion.bash
 elif [[ $os == 'linux' ]]
 then
-  . /usr/share/bash-completion/bash_completion
+  # . /usr/share/bash-completion/bash_completion
   # Load git functions like __git_aliased_command and __git_complete to
   # be used below
   . /usr/share/bash-completion/completions/git
@@ -130,9 +131,9 @@ done
 # Init utilities
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-if [[ -x $(which rbenv) ]]; then
-  eval "$(rbenv init -)"
-fi
+# if [[ -x $(which rbenv) ]]; then
+#   eval "$(rbenv init -)"
+# fi
 # /Init utilities
 
 [ -f ~/.aboutsourcerc ] && source ~/.aboutsourcerc
