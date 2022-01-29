@@ -32,7 +32,6 @@ call plug#end()
 syntax enable
 set encoding=utf-8
 set laststatus=2   " Always show the statusline
-set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
 set ai
 filetype indent on
@@ -147,7 +146,7 @@ augroup CursorLine
 augroup END
 highlight CursorlineNR cterm=bold term=bold ctermbg=white
 highlight Cursorline cterm=none term=none
-highlight ColorColumn ctermbg=237
+highlight ColorColumn ctermbg=236
 highlight Search ctermbg=lightgreen
 
 nnoremap <up> @k
