@@ -1,5 +1,20 @@
+#!/bin/bash
+
 # Open the browser at repo's Github page
 
 origin=$(git config --get remote.origin.url)
 path=$(echo $origin | sed -e 's/.*[:]\(.*\)\.git$/\1/')
-open "https://github.com/$path"
+
+uname_out=(uname -s)
+case $($uname_out) in
+  Linux*)
+  firefox "https://github.com/$path"
+  ;;
+  Darwin*)
+  open "https://github.com/$path"
+  ;;
+  *)
+  echo "OS $(uname_out) unknown, exit."
+  exit 1
+  ;;
+esac
