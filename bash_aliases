@@ -17,6 +17,9 @@ alias t='cd /tmp'
 alias vim='nvim -u ~/.vimrc'
 alias w="cd $HOME/werkbank"
 alias dus="du -sh"
+alias dea='docker-compose exec app'
+alias rd='rubocop $(git diff --name-only $(current_git_repo_base_branch) | grep "\.rb$")'
+alias rda='rubocop -a $(git diff --name-only $(current_git_repo_base_branch) | grep "\.rb$")'
 
 # Git aliases no autocompletable
 # (adding them here if possible, saves shell startup time)
