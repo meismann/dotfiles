@@ -5,22 +5,22 @@ packages=(
   git
   gitg
   # gnome-do
-  libmysqlclient-dev
-  mysql-client
-  mysql-server
+  #libmysqlclient-dev
+  #mysql-client
+  #mysql-server
   # mysql-workbench
   neovim
   nodejs
   npm
-  pgadmin3
-  postgresql
+  #pgadmin3
+  #postgresql
   silversearcher-ag
-  sublime-text
+  #sublime-text
   synaptic
   tree
-  wine
-  vim
   virtualbox
+  #wine
+  #vim
   vlc
   xclip
   youtube-dl
@@ -46,9 +46,9 @@ packages=(
   python3-tk
 
   # Dependencies of borg backup with mount (https://docs.borgbase.com/restore/mount/)
-  fuse 
-  libfuse-dev 
-  pkg-config
+  #fuse 
+  #libfuse-dev 
+  #pkg-config
 )
 
 # Prepare apt-get for Sublime Text
