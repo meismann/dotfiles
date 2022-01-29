@@ -21,8 +21,8 @@
 	editor = nvim
 	filemode = false
 [user]
-	email = softwerk@eismann.cc
 	name = Martin Eismann
+	email = martin.eismann@aboutsource.net
 [branch]
 	autosetuprebase = always
 [pull]
