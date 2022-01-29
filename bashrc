@@ -37,9 +37,17 @@ gcl ()
 pr() {
   to_branch=$1
   if [ -z $to_branch ]; then
-    to_branch="master"
+    to_branch=$(current_git_repo_base_branch)
   fi
 
+  origin=$(current_git_repo_upstream) 
+  to_user=$(echo $origin | sed -e 's/.*[\/:]\([^/]*\)\/[^/]*$/\1/')
+  from_user=$(echo $origin | sed -e 's/.*[\/:]\([^/]*\)\/[^/]*$/\1/')
+  repo=$(echo $origin | sed -e 's/.*[^/]*\/\([^/]*\)\.git$/\1/')
+  from_branch=$(git rev-parse --abbrev-ref HEAD)
+  firefox "https://github.com/$to_user/$repo/pull/new/$to_user:$to_branch...$from_user:$from_branch"
+}
+current_git_repo_upstream() {
   # try the upstream branch if possible, otherwise origin will do
   upstream=$(git config --get remote.upstream.url)
   origin=$(git config --get remote.origin.url)
@@ -47,11 +55,10 @@ pr() {
     upstream=$origin
   fi
 
-  to_user=$(echo $upstream | sed -e 's/.*[\/:]\([^/]*\)\/[^/]*$/\1/')
-  from_user=$(echo $origin | sed -e 's/.*[\/:]\([^/]*\)\/[^/]*$/\1/')
-  repo=$(echo $origin | sed -e 's/.*[^/]*\/\([^/]*\)\.git$/\1/')
-  from_branch=$(git rev-parse --abbrev-ref HEAD)
-  open "https://github.com/$to_user/$repo/pull/new/$to_user:$to_branch...$from_user:$from_branch"
+  echo $upstream
+}
+current_git_repo_base_branch() {
+  LANG=en git remote show $(current_git_repo_upstream) | sed -n '/HEAD branch/s/.*: //p'
 }
 # /Miscellaneous utility functions
 
