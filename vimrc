@@ -64,6 +64,9 @@ nnoremap <c-l> <c-w><c-l>
 nnoremap <c-k> <c-w><c-k>
 nnoremap <c-j> <c-w><c-j>
 nnoremap <c-h> <c-w><c-h>
+nnoremap <c-tab> :e#<cr>
+nnoremap <c-°> :e#<cr>
+nnoremap <c-n> :e#<cr>
 
 " http://stackoverflow.com/questions/3761770/iterm-vim-colorscheme-not-working
 let &t_Co=256
