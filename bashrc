@@ -8,7 +8,8 @@ export PATH="\
 /usr/local/sbin:\
 ~/bin:\
 $PATH:\
-/usr/local/share/npm/bin\
+/usr/local/share/npm/bin:\
+~/.local/share/gem/ruby/3.0.0/bin\
 "
 # /Constants
 
@@ -127,3 +128,4 @@ if [[ -x $(which rbenv) ]]; then
 fi
 # /Init utilities
 
+[ -f ~/.aboutsourcerc ] && source ~/.aboutsourcerc
