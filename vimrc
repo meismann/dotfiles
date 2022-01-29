@@ -149,3 +149,9 @@ highlight CursorlineNR cterm=bold term=bold ctermbg=white
 highlight Cursorline cterm=none term=none
 highlight ColorColumn ctermbg=237
 highlight Search ctermbg=lightgreen
+
+nnoremap <up> @k
+nnoremap <down> @j
+nnoremap <right> @l
+nnoremap <left> @h
+inoremap <tab> <c-p>
