@@ -24,6 +24,9 @@ Plug 'kana/vim-textobj-user' " Dependency of vim-textobj-rubyblock
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'Yggdroot/indentLine'
 Plug 'blueyed/vim-diminactive'
+Plug 'slim-template/vim-slim'
+Plug 'tpope/vim-eunuch'
+Plug 'nicwest/vim-camelsnek'
 call plug#end()
 
 syntax enable
