@@ -6,10 +6,6 @@ DOTFILES_REPO_HTTPS_URL=https://github.com/meismann/dotfiles.git
 DOTFILES_REPO_SSH_URL=git@github.com:meismann/dotfiles.git
 
 install_basic_mac_packages() {
-  echo 'Switching from Zsh to Bash…' \
-    && chsh -s /bin/bash \
-    && echo '… done switching to Bash.'
-
   echo 'Installing basic Mac packages…'
   if [[ ! -x $(which brew) ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -35,6 +31,10 @@ install_basic_linux_packages() {
   echo '… done installing basic Linux packages.'
 }
 
+echo 'Switching from Zsh to Bash…' \
+  && chsh -s /bin/bash \
+  && echo '… done switching to Bash.'
+
 uname_out=(uname -s)
 case $($uname_out) in
     Linux*)
@@ -55,9 +55,9 @@ mkdir -p $WERKBANK_DIR
 
 if [[ ! -d $DOTFILES_REPO_DIR ]]; then
   git clone $DOTFILES_REPO_HTTPS_URL $DOTFILES_REPO_DIR \
-    || (echo 'Cloning dotfiles failed!' && exit 1)
+    || echo 'Cloning dotfiles failed!' && exit 1
 else
-  cd $DOTFILES_REPO_DIR && git pull || exit 1
+  cd $DOTFILES_REPO_DIR # && git pull || echo 'Pulling dotfiles failed!' && exit 1
 fi
 
 echo 'Setting up SSH key …' \
