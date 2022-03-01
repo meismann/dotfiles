@@ -37,7 +37,7 @@ gcl ()
 pr() {
   to_branch=$1
   if [ -z $to_branch ]; then
-    to_branch=$(current_git_repo_base_branch)
+    to_branch=$(git parent)
   fi
 
   origin=$(current_git_repo_upstream) 
@@ -57,9 +57,9 @@ current_git_repo_upstream() {
 
   echo $upstream
 }
-current_git_repo_base_branch() {
-  LANG=en git remote show $(current_git_repo_upstream) | sed -n '/HEAD branch/s/.*: //p'
-}
+# current_git_repo_base_branch() {
+#   LANG=en git remote show $(current_git_repo_upstream) | sed -n '/HEAD branch/s/.*: //p'
+# }
 # /Miscellaneous utility functions
 
 case $OSTYPE in
