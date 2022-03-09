@@ -18,8 +18,7 @@ alias vim='nvim -u ~/.vimrc'
 alias w="cd $HOME/werkbank"
 alias dus="du -sh"
 alias dea='docker-compose exec app'
-alias rd='rubocop $(git diff --name-only $(git parent) | grep "\.rb$\|\.rake$" | grep -v "db/schema.rb")'
-alias rda='rubocop -a $(git diff --name-only $(git parent) | grep "\.rb$\|\.rake$" | grep -v "db/schema.rb")'
+alias rd='slim-lint $(git diff --name-only $(git parent) | grep "\.slim$") && rubocop -a $(git diff --name-only $(git parent) | grep "\.rb$\|\.rake$" | grep -v "db/schema.rb")'
 
 # Git aliases no autocompletable
 # (adding them here if possible, saves shell startup time)
