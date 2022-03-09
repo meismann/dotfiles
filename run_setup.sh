@@ -21,8 +21,8 @@ install_basic_mac_packages() {
 
 install_basic_linux_packages() {
   echo 'Installing basic Linux packages…'
-  sudo apt-get update
-  sudo apt-get --yes install git xclip curl
+  sudo apt update
+  sudo apt --yes install git xclip curl
   # Spam protection
   useremail='softwerk@'
   useremail=$useremail"eismann.cc"

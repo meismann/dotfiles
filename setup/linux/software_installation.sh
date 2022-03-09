@@ -51,22 +51,22 @@ packages=(
   #pkg-config
 )
 
-# Prepare apt-get for Sublime Text
+# Prepare apt for Sublime Text
 # Install the GPG key:
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 # Ensure apt is set up to work with https sources:
-sudo apt-get install apt-transport-https
+sudo apt install apt-transport-https
 # Select the Stable channel:
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 if [ -z "$(find /var/cache/apt/pkgcache.bin -mmin -60)" ]; then
   # The main script (run_setup.sh) will have just run that in most cases
-  sudo apt-get update
+  sudo apt update
 fi
-sudo apt-get --yes install ${packages[@]} || (echo 'Software install failed!' && exit 1)
+sudo apt --yes install ${packages[@]} || (echo 'Software install failed!' && exit 1)
 
 # Remove Amazon shit:
-sudo apt-get --yes remove unity-webapps-common
+sudo apt --yes remove unity-webapps-common
 
 echo 'Installing rbenv and ruby-build plugin…'
 export PATH="\
@@ -79,7 +79,7 @@ curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-install
 
 wget -qO - https://packagecloud.io/shiftkey/desktop/gpgkey | sudo tee /etc/apt/trusted.gpg.d/shiftkey-desktop.asc > /dev/null
 sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" > /etc/apt/sources.list.d/packagecloud-shiftkey-desktop.list'
-sudo apt-get update
+sudo apt update
 sudo apt install github-desktop
 
 # Install Signal

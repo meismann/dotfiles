@@ -1,1 +1,1 @@
-alias sagi='sudo apt-get install'
+alias sagi='sudo apt install'
