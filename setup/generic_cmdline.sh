@@ -18,7 +18,7 @@ latest_ruby_version=$(rbenv install -l | grep -E '^[0-9.]{3,}' | sort | tail -n 
   && echo '… done installing latest Ruby version' \
   && rbenv global $latest_ruby_version \
   && eval "$(rbenv init -)" \
-  && gem install bundler
+  && gem install --no-doc bundler slim_lint
 
 # From https://pypi.org/project/pdfCropMargins/
 echo 'Installing pdf-crop-margins…' \
