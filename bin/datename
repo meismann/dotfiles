@@ -1,12 +1,26 @@
 #!/usr/bin/ruby
+require 'bundler/inline'
+
+gemfile do
+  source 'https://rubygems.org'
+  gem 'exifr'
+end
+
+require 'exifr/jpeg'
 
 dateformat = '%Y-%m-%d %Hh%M.%S'
 
 ARGV.each do |rel_path_with_name|
-  date_str = File.new(rel_path_with_name).mtime.strftime(dateformat)
+  date_time = EXIFR::JPEG.new(rel_path_with_name).date_time
+  date_str = date_time.strftime(dateformat)
 
   new_rel_path_with_name = rel_path_with_name
     .sub(/^(.*\/)?(?:[^\/]+(\.[^.]+)|[^\/.]*)$/, "\\1#{date_str}\\2")
     .sub(/\.[^\/.]+$/){ |s| s.downcase } # downcase suffix
   File.rename(rel_path_with_name, new_rel_path_with_name)
+rescue StandardError => e
+  puts <<~ERR
+  Problem mit #{rel_path_with_name}: #{e.to_s}
+  Datetime ist: #{date_time}
+  ERR
 end
