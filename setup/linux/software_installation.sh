@@ -24,6 +24,8 @@ packages=(
   vlc
   xclip
   youtube-dl
+  # ifconfig
+  net-tools
 
   # Dependencies of rbenv-build:
   autoconf
