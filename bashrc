@@ -98,7 +98,8 @@ for al in $git_aliases; do
   alias g$al="git $al"
     
   complete_func=_git_$(__git_aliased_command $al)
-  function_exists $complete_fnc && __git_complete g$al $complete_func
+  complete_func=${complete_func/-/_}
+  function_exists $complete_func && __git_complete g$al $complete_func
 done
 # /Git subcommand aliasing
 
