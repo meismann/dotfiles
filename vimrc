@@ -121,8 +121,6 @@ nnoremap <c-p> p
 " Whitespaces
 autocmd BufWriteCmd * try | undojoin | w | call TrimWhiteSpace() | catch /^Vim\%((\a\+)\)\=:E790/ | w | endtry
 
-colorscheme peachpuff
-
 " Line numbers and highlights
 augroup CursorLine
   au!
