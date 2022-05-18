@@ -110,11 +110,6 @@ noremap <c-a> :Autoformat<CR>
 
 " textobject-ruby
 runtime macros/matchit.vim
-
-" Paste and indent properly
-nnoremap p p=']
-nnoremap P P=']
-nnoremap <c-p> p
 " /Configure Plugins
 
 " Autocommands:
@@ -148,6 +143,11 @@ let &t_Co=256
 let mapleader=' '
 inoremap <tab> <c-p>
 nnoremap <Leader>bp jIrequire'pry';binding.pry<CR><esc>:w<cr>
+
+" Paste and indent properly
+nnoremap p mpp=`]`p
+nnoremap P mpP=`]`p
+nnoremap <c-p> p
 
 " switching easily between panes
 nnoremap <c-l> <c-w><c-l>
