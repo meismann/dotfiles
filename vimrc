@@ -155,3 +155,7 @@ nnoremap <c-k> <c-w><c-k>
 nnoremap <c-j> <c-w><c-j>
 nnoremap <c-h> <c-w><c-h>
 
+" switching easily between buffers (enable Airline's smart buffer list for
+" best experience)
+nnoremap <c-left> :bp<cr>
+nnoremap <c-right> :bn<cr>
