@@ -18,7 +18,6 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'vim-ruby/vim-ruby'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align'
 Plug 'chiel92/vim-autoformat'
 Plug 'kana/vim-textobj-user' " Dependency of vim-textobj-rubyblock
 Plug 'nelstrom/vim-textobj-rubyblock'
@@ -89,11 +88,6 @@ nmap <BS> :History<CR>
 nmap <CR> :GFiles<CR>
 nmap <S-Tab> :Files<CR>
 nmap <Leader><Tab> :GFiles?<CR>
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
 
 " Autoformat
 noremap <c-a> :Autoformat<CR>
