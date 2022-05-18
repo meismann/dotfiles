@@ -117,7 +117,12 @@ function error_exit_status {
     echo $last_exit_status
   fi
 }
-export PS1='\e[1;31m$(error_exit_status)\e[m\e[42m\t\e[m \[\033[0;33m\]\w\[\033[00m\]\[\033[01;00m\]$(parse_git_branch): '
+exit_status='\[\033[1;31m\]$(error_exit_status)'
+time='\[\033[0;42m\]\t'
+working_dir='\[\033[0;33m\] \w'
+git_branch='\[\033[01;00m\]$(parse_git_branch): '
+export PS1=$exit_status$time$working_dir$git_branch
+# export PS1='\[\033[31m\]$(error_exit_status)\[\033[32m\]\t \[\033[0;33m\]\w\[\033[00m\]\[\033[01;00m\]$(parse_git_branch): '
 # /Bash prompt config
 
 # OS specific additions
