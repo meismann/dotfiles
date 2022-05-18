@@ -159,3 +159,5 @@ nnoremap <c-h> <c-w><c-h>
 " best experience)
 nnoremap <c-left> :bp<cr>
 nnoremap <c-right> :bn<cr>
+
+nnoremap <c-v> "+P
