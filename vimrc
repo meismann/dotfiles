@@ -1,3 +1,27 @@
+" Functions
+function! TrimWhiteSpace()
+  if &ft =~ 'yaml' || &ft =~ 'text'
+    " Dont strip if file type is Yaml
+    return
+  endif
+  silent! execute "buff=$(git stripspace < " . bufname("%") . ") && echo $buff > " . bufname("%")
+  let l:winview = winsaveview()
+  e
+  call winrestview(l:winview)
+endfunction
+
+" Add frozen_string_literal to file's head
+function! Add_frozen_string_literal_true()
+  let save_cursor = getpos(".")
+  normal ggI# frozen_string_literal: true
+  execute "normal! a\n"
+  normal O
+  call setpos('.', save_cursor)
+  normal jj
+endfunction
+nnoremap <Leader>fsl :call Add_frozen_string_literal_true()<cr>
+" /Functions
+
 " This is for Neovim to pick up the ~/.vim directory correctly
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
@@ -58,16 +82,8 @@ set suffixesadd+=.coffee
 set scrolloff=5          "Start scrolling when 10 lines close to the bottom
 set cursorline
 
-" switching easily between panes
-nnoremap <c-l> <c-w><c-l>
-nnoremap <c-k> <c-w><c-k>
-nnoremap <c-j> <c-w><c-j>
-nnoremap <c-h> <c-w><c-h>
-
-" http://stackoverflow.com/questions/3761770/iterm-vim-colorscheme-not-working
-let &t_Co=256
-
-let mapleader=' '
+" Configure Plugins:
+" Airline
 let g:airline_theme='ayu_mirage'
 let g:airline_section_x = ''
 let g:airline_section_y = ''
@@ -76,12 +92,12 @@ if winwidth(0) > 80
 else
   let g:airline_section_z = airline#section#create(['linenr', 'maxlinenr', ':%3v'])
 endif
+let g:airline#extensions#tabline#enabled = 1
+
 " Indent Guides
 let g:indentLine_color_term = 240
 let g:indentLine_char = '⋮'
 let g:indentLine_enabled = 1
-
-au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
 " FZF
 nmap <BS> :History<CR>
@@ -95,42 +111,19 @@ noremap <c-a> :Autoformat<CR>
 " textobject-ruby
 runtime macros/matchit.vim
 
-" For Pry: (https://github.com/rking/pry-de/blob/master/vim/ftplugin/ruby_pry.vim)
-nnoremap <Leader>bp jIrequire'pry';binding.pry<CR><esc>:w<cr>
-
-" Add frozen_string_literal to file's head
-function! Add_frozen_string_literal_true()
-  let save_cursor = getpos(".")
-  normal ggI# frozen_string_literal: true
-  execute "normal! a\n"
-  normal O
-  call setpos('.', save_cursor)
-  normal jj
-endfunction
-nnoremap <Leader>fsl :call Add_frozen_string_literal_true()<cr>
-
 " Paste and indent properly
 nnoremap p p=']
 nnoremap P P=']
 nnoremap <c-p> p
+" /Configure Plugins
 
 " Autocommands:
-
-"" Whitespaces
-function! TrimWhiteSpace()
-  if &ft =~ 'yaml' || &ft =~ 'text'
-    " Dont strip if file type is Yaml
-    return
-  endif
-  silent! execute "buff=$(git stripspace < " . bufname("%") . ") && echo $buff > " . bufname("%")
-  let l:winview = winsaveview()
-  e
-  call winrestview(l:winview)
-endfunction
+" Whitespaces
 autocmd BufWriteCmd * try | undojoin | w | call TrimWhiteSpace() | catch /^Vim\%((\a\+)\)\=:E790/ | w | endtry
 
 colorscheme peachpuff
 
+" Line numbers and highlights
 augroup CursorLine
   au!
   au VimEnter,WinEnter,BufWinEnter * setlocal relativenumber
@@ -138,13 +131,29 @@ augroup CursorLine
   au WinLeave * setlocal norelativenumber
   au WinLeave * IndentLinesDisable
 augroup END
+" /Autocommands
+
+" Colours:
 highlight CursorlineNR cterm=bold term=bold ctermbg=white
 highlight Cursorline cterm=none term=none
 highlight ColorColumn ctermbg=236
 highlight Search ctermbg=lightgreen
+" /Colours
 
-nnoremap <up> @k
-nnoremap <down> @j
-nnoremap <right> @l
-nnoremap <left> @h
+" Tweaks:
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+" http://stackoverflow.com/questions/3761770/iterm-vim-colorscheme-not-working
+let &t_Co=256
+" /Tweaks
+
+" Mappings:
+let mapleader=' '
 inoremap <tab> <c-p>
+nnoremap <Leader>bp jIrequire'pry';binding.pry<CR><esc>:w<cr>
+
+" switching easily between panes
+nnoremap <c-l> <c-w><c-l>
+nnoremap <c-k> <c-w><c-k>
+nnoremap <c-j> <c-w><c-j>
+nnoremap <c-h> <c-w><c-h>
+
