@@ -1,13 +1,14 @@
 " Functions
-function! TrimWhiteSpace()
+function! WriteAndTrimWhiteSpace()
+  write
   if &ft =~ 'yaml' || &ft =~ 'text'
-    " Dont strip if file type is Yaml
+    " Dont strip if file type is Yaml etc.
     return
   endif
-  silent! execute "buff=$(git stripspace < " . bufname("%") . ") && echo $buff > " . bufname("%")
-  let l:winview = winsaveview()
+  call system("buff=$(git stripspace < " . bufname("%") . ') && echo "$buff" > ' . bufname("%"))
+  normal me
   e
-  call winrestview(l:winview)
+  normal `e
 endfunction
 
 " Add frozen_string_literal to file's head
@@ -114,7 +115,7 @@ runtime macros/matchit.vim
 
 " Autocommands:
 " Whitespaces
-autocmd BufWriteCmd * try | undojoin | w | call TrimWhiteSpace() | catch /^Vim\%((\a\+)\)\=:E790/ | w | endtry
+autocmd BufWriteCmd * call WriteAndTrimWhiteSpace()
 
 " Line numbers and highlights
 augroup CursorLine
