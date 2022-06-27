@@ -51,6 +51,9 @@ Plug 'blueyed/vim-diminactive'
 Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-eunuch'
 Plug 'nicwest/vim-camelsnek'
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'leafOfTree/vim-vue-plugin'
 call plug#end()
 
 syntax enable
@@ -111,6 +114,9 @@ noremap <c-a> :Autoformat<CR>
 
 " textobject-ruby
 runtime macros/matchit.vim
+
+" vim-vue
+let g:vim_vue_plugin_load_full_syntax = 1
 " /Configure Plugins
 
 " Autocommands:
@@ -160,5 +166,3 @@ nnoremap <c-h> <c-w><c-h>
 " best experience)
 nnoremap <c-left> :bp<cr>
 nnoremap <c-right> :bn<cr>
-
-nnoremap <c-v> "+P
