@@ -42,10 +42,6 @@ apps=(
   vlc
 )
 
-echo "Installing Pow…" \
-  && curl get.pow.cx | sh \
-  && echo '… done installing Pow.'
-
 echo 'Brewing formulas…' \
   && brew install ${formulas[@]} \
   && echo '… done brewing formulas.' \
