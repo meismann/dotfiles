@@ -19,6 +19,8 @@ alias w="cd $HOME/werkbank"
 alias dus="du -sh"
 alias dea='docker-compose exec app'
 alias rd='slim-lint $(git diff --name-only $(git parent) | grep "\.slim$") && rubocop -a $(git diff --name-only $(git parent) | grep "\.rb$\|\.rake$" | grep -v "db/schema.rb")'
+alias books='rsync --delete -arv ~/Bücher/ /Volumes/PB700/Downloads/'
+alias z='cd ~/Zettelkasten'
 
 # Git aliases no autocompletable
 # (adding them here if possible, saves shell startup time)
