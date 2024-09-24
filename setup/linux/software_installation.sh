@@ -23,7 +23,6 @@ packages=(
   #vim
   vlc
   xclip
-  youtube-dl
   # ifconfig
   net-tools
   rbenv
@@ -50,8 +49,8 @@ packages=(
   python3-tk
 
   # Dependencies of borg backup with mount (https://docs.borgbase.com/restore/mount/)
-  #fuse 
-  #libfuse-dev 
+  #fuse
+  #libfuse-dev
   #pkg-config
 )
 
