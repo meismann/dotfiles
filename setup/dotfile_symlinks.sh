@@ -37,6 +37,3 @@ do
   echo "Creating symlink $i"
   ln -s $repo_dir/${i#.} $i
 done
-
-echo "Sourcing the new .bash_profile…"
-source $HOME/.bash_profile && echo "…done."
