@@ -40,7 +40,7 @@ pr() {
     to_branch=$(git parent)
   fi
 
-  origin=$(current_git_repo_upstream) 
+  origin=$(current_git_repo_upstream)
   to_user=$(echo $origin | sed -e 's/.*[\/:]\([^/]*\)\/[^/]*$/\1/')
   from_user=$(echo $origin | sed -e 's/.*[\/:]\([^/]*\)\/[^/]*$/\1/')
   repo=$(echo $origin | sed -e 's/.*[^/]*\/\([^/]*\)\.git$/\1/')
@@ -96,7 +96,7 @@ function_exists() {
 git_aliases=`git --list-cmds=alias`
 for al in $git_aliases; do
   alias g$al="git $al"
-    
+
   complete_func=_git_$(__git_aliased_command $al)
   complete_func=${complete_func/-/_}
   function_exists $complete_func && __git_complete g$al $complete_func
@@ -141,4 +141,4 @@ if [[ -x $(which rbenv) ]]; then
 fi
 # /Init utilities
 
-[ -f ~/.aboutsourcerc ] && source ~/.aboutsourcerc
+[ -f ~/.employerrc ] && source ~/.employerrc

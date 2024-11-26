@@ -23,7 +23,6 @@ apps=(
   chromedriver
   clipy
   firefox
-  flash-player
   gimp
   github
   google-chrome
@@ -33,7 +32,6 @@ apps=(
   # pg-commander
   # pgadmin3
   sequel-pro
-  slack
   sublime-text
   telegram
   thunderbird
