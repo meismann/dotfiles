@@ -4,6 +4,7 @@ alias bo='bundle open'
 alias bu='bundle update'
 alias d=docker
 alias dc=docker-compose
+alias du='du -csh'
 alias i='bundle exec rake i18n:js:export'
 alias ll='ls -lah'
 alias ls='ls -F'
