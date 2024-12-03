@@ -75,7 +75,8 @@ flatpak install -y \
 	org.chromium.Chromium \
 	org.apache.directory.studio \
 	org.telegram.desktop \
-	io.gitlab.librewolf-community \
 	md.obsidian.Obsidian \
 	com.sublimetext.three \
+  chat.schildi.desktop \
+  org.mozilla.Firefox \
 	org.mozilla.Thunderbird

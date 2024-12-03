@@ -141,4 +141,4 @@ if [[ -x $(which rbenv) ]]; then
 fi
 # /Init utilities
 
-[ -f ~/.employerrc ] && source ~/.employerrc
+[ -f ~/.currentjobrc ] && source ~/.currentjobrc
