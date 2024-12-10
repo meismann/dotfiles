@@ -28,6 +28,7 @@ apps=(
   google-chrome
   libreoffice
   macfuse # for borg mount
+  MediathekView
   cask nextcloud
   # pg-commander
   # pgadmin3
