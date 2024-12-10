@@ -5,6 +5,8 @@ formulas=(
   git
   gpg
   imagemagick
+  keepassxc
+  MediathekView
   mysql
   npm
   nvim
@@ -28,8 +30,7 @@ apps=(
   google-chrome
   libreoffice
   macfuse # for borg mount
-  MediathekView
-  cask nextcloud
+  nextcloud
   # pg-commander
   # pgadmin3
   sequel-pro
