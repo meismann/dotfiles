@@ -70,13 +70,13 @@ sudo apt update
 sudo apt --yes install ${packages[@]} || (echo 'Software install failed!' && exit 1)
 
 # Install Flatpaks
-flatpak install -y \
-	eu.betterbird.Betterbird \
-	org.chromium.Chromium \
-	org.apache.directory.studio \
-	org.telegram.desktop \
-	md.obsidian.Obsidian \
-	com.sublimetext.three \
-  chat.schildi.desktop \
-  org.mozilla.Firefox \
-	org.mozilla.Thunderbird
+# flatpak install -y \
+# 	eu.betterbird.Betterbird \
+# 	org.chromium.Chromium \
+# 	org.apache.directory.studio \
+# 	org.telegram.desktop \
+# 	md.obsidian.Obsidian \
+# 	com.sublimetext.three \
+#   chat.schildi.desktop \
+#   org.mozilla.Firefox \
+# 	org.mozilla.Thunderbird
