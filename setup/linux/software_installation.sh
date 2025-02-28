@@ -1,5 +1,6 @@
 packages=(
   # albert
+  copyq
   curl
   flatpak
   gimp
