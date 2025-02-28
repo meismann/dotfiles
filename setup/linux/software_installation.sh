@@ -1,7 +1,9 @@
 packages=(
-  # albert
+  albert
+  chromium
   copyq
   curl
+  element-desktop
   flatpak
   gimp
   git
@@ -45,11 +47,14 @@ packages=(
   #fuse
   #libfuse-dev
   #pkg-config
+
+  # for element-desktop
+  apt-transport-https
 )
 
 # Add repo for Albert
-# echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_24.04/ /' | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
-# curl -fsSL https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_24.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_manuelschneid3r.gpg > /dev/null
+echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_24.04/ /' | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
+curl -fsSL https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_24.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_manuelschneid3r.gpg > /dev/null
 
 # Add repo for Github client
 # wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
@@ -65,6 +70,11 @@ echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] 
 
 # Add repo for yt-dlp
 sudo add-apt-repository ppa:tomtomtom/yt-dlp
+
+# Add repo for element-desktop
+sudo apt install -y wget
+sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages.element.io/debian/element-io-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main" | sudo tee /etc/apt/sources.list.d/element-io.list
 
 # Now install everything
 sudo apt update
