@@ -11,12 +11,23 @@ require 'exifr/jpeg'
 dateformat = '%Y-%m-%d %Hh%M.%S'
 
 ARGV.each do |rel_path_with_name|
+  if File.directory?(rel_path_with_name)
+    puts "Verzeichnis '#{rel_path_with_name}' wird übersprungen."
+    next
+  end
+
   date_time = EXIFR::JPEG.new(rel_path_with_name).date_time
+
+  raise "#{rel_path_with_name} enthält kein Datum" unless date_time
+
   date_str = date_time.strftime(dateformat)
 
   new_rel_path_with_name = rel_path_with_name
     .sub(/^(.*\/)?(?:[^\/]+(\.[^.]+)|[^\/.]*)$/, "\\1#{date_str}\\2")
     .sub(/\.[^\/.]+$/){ |s| s.downcase } # downcase suffix
+
+  raise "#{new_rel_path_with_name} existiert schon" if File.exists?(new_rel_path_with_name)
+
   File.rename(rel_path_with_name, new_rel_path_with_name)
 rescue StandardError => e
   puts <<~ERR
