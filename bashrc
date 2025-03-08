@@ -142,3 +142,5 @@ fi
 # /Init utilities
 
 [ -f ~/.currentjobrc ] && source ~/.currentjobrc
+
+source ~/.bash_variables
