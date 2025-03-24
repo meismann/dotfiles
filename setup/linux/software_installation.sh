@@ -78,7 +78,7 @@ echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https:/
 
 # Now install everything
 sudo apt update
-sudo apt --yes install ${packages[@]} || (echo 'Software install failed!' && exit 1)
+sudo apt --yes install "${packages[@]}" || { echo 'Software install failed!'; exit 1; }
 
 # Install Flatpaks
 # flatpak install -y \
