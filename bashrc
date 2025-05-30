@@ -144,3 +144,5 @@ fi
 [ -f ~/.currentjobrc ] && source ~/.currentjobrc
 
 source ~/.bash_variables
+
+eval "$(mise activate bash)"

@@ -2,7 +2,6 @@ packages=(
   albert
   chromium
   copyq
-  curl
   element-desktop
   flatpak
   gimp
@@ -16,6 +15,7 @@ packages=(
   #mysql-client
   #mysql-server
   # mysql-workbench
+  mise
   neovim
   nodejs
   npm
@@ -33,7 +33,6 @@ packages=(
   nextcloud-desktop
   ruby-full
   signal-desktop
-  wget
   yt-dlp
 
   # Dependencies of pdf-crop-margins
@@ -51,6 +50,9 @@ packages=(
   # for element-desktop
   apt-transport-https
 )
+
+# Prereqs for adding repos
+sudo apt update -y && sudo apt install -y gpg wget curl
 
 # Add repo for Albert
 echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_24.04/ /' | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
@@ -72,9 +74,13 @@ echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] 
 sudo add-apt-repository ppa:tomtomtom/yt-dlp
 
 # Add repo for element-desktop
-sudo apt install -y wget
 sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages.element.io/debian/element-io-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main" | sudo tee /etc/apt/sources.list.d/element-io.list
+
+# Add repo for mise
+sudo install -dm 755 /etc/apt/keyrings
+wget -qO - https://mise.jdx.dev/gpg-key.pub | gpg --dearmor | sudo tee /etc/apt/keyrings/mise-archive-keyring.gpg 1> /dev/null
+echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=amd64] https://mise.jdx.dev/deb stable main" | sudo tee /etc/apt/sources.list.d/mise.list
 
 # Now install everything
 sudo apt update
