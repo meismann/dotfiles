@@ -145,4 +145,4 @@ fi
 
 source ~/.bash_variables
 
-eval "$(mise activate bash)"
+which mise && eval "$(mise activate bash)" || alles=ok
