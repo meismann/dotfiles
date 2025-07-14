@@ -24,6 +24,7 @@ packages=(
   #postgresql
   silversearcher-ag
   synaptic
+  ttf-mscorefonts-installer
   tree
   virtualbox
   #wine
