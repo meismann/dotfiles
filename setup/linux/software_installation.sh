@@ -9,6 +9,7 @@ packages=(
   gitg
   # github-desktop
   gnome-shell-extension-manager
+  gnome-snapshot
   keepassxc
   # gnome-do
   #libmysqlclient-dev
