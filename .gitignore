@@ -3,3 +3,5 @@ vim/.netrwhist
 vim/plugged/*
 vim/.netrwhist
 signal-desktop-keyring.gpg
+bin/*AppImage
+bin/*log
