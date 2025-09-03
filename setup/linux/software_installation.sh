@@ -10,6 +10,7 @@ packages=(
   # github-desktop
   gnome-shell-extension-manager
   gnome-snapshot
+  grub-customizer
   keepassxc
   # gnome-do
   #libmysqlclient-dev
@@ -74,6 +75,9 @@ echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] 
 
 # Add repo for yt-dlp
 sudo add-apt-repository ppa:tomtomtom/yt-dlp
+
+# Add repo for grub-customizer
+sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
 
 # Add repo for element-desktop
 sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages.element.io/debian/element-io-archive-keyring.gpg

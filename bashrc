@@ -142,7 +142,6 @@ fi
 # /Init utilities
 
 [ -f ~/.currentjobrc ] && source ~/.currentjobrc
-
-source ~/.bash_variables
+[ -f ~/.bash_variables ] && source ~/.bash_variables
 
 which mise > /dev/null && eval "$(mise activate bash)"

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cp places.sqlite favicons.sqlite key4.db logins.json permissions.sqlite search.json.mozlz4 persdict.dat formhistory.sqlite cookies.sqlite cert9.db handlers.json $1
