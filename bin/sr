@@ -1,21 +1,50 @@
-#!/bin/bash
+#!/usr/bin/env ruby
 
-case $# in
-  1 )
-    ag "$1"
-  ;;
-  2 )
-    echo "Replacing '$1' with '$2' everywhere"
-    ag "$1" --nogroup | awk '{print substr($1,1,index($1,":")-1);}' | xargs -I {} sed -i '' -e "s/$1/$2/g" {}
-  ;;
-  3 )
-    echo "Replacing '$1' with '$2' in $3"
-      ag "$1" --nogroup "$3" | awk '{print substr($1,1,index($1,":")-1);}' | xargs -I {} sed -i '' -e "s/$1/$2/g" {}
-  ;;
-  *)
-    echo "Eingabe so:"
-    echo "sr search_string"
-    echo "sr search_string [search_dir|replace_string]"
-    echo "sr search_string search_dir replace_string"
-  ;;
-esac
+require 'find'
+
+# Überprüfen, ob die erforderlichen Argumente übergeben wurden
+if ARGV.length < 2
+  puts "Usage: #{$0} SUCHSTR ERSATZSTR [DIR]"
+  exit 1
+end
+
+suchstr = ARGV[0]
+ersatzstr = ARGV[1]
+dir = ARGV[2] || '.'  # Standardmäßig das aktuelle Verzeichnis verwenden, wenn kein DIR angegeben ist
+
+# Überprüfen, ob das Verzeichnis existiert
+unless Dir.exist?(dir)
+  puts "Das angegebene Verzeichnis '#{dir}' existiert nicht."
+  exit 1
+end
+
+# Dateien finden, die den Suchstring enthalten
+dateien = []
+Find.find(dir) do |datei|
+  if File.directory?(datei) && datei.start_with?(dir + '/.')
+    puts "#{datei} wird ausgelassen."
+    Find.prune       # Don't look any further into this directory.
+
+    next
+  end
+
+  if File.file?(datei) && File.read(datei).include?(suchstr)
+      dateien << datei
+  end
+end
+
+# Überprüfen, ob Dateien gefunden wurden
+if dateien.empty?
+  puts "Keine Dateien mit dem Suchbegriff '#{suchstr}' gefunden."
+  exit 0
+end
+
+# Durch jede gefundene Datei iterieren und den Ersetzungsbefehl ausführen
+dateien.each do |datei|
+  puts "Ersetze in Datei: #{datei}"
+  content = File.read(datei)
+  new_content = content.gsub(/#{Regexp.escape(suchstr)}/, ersatzstr)
+  File.write(datei, new_content)
+end
+
+puts "Ersetzung abgeschlossen."
