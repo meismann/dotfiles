@@ -12,7 +12,6 @@ packages=(
   gnome-snapshot
   grub-customizer
   keepassxc
-  # gnome-do
   #libmysqlclient-dev
   #mysql-client
   #mysql-server
@@ -27,10 +26,12 @@ packages=(
   synaptic
   ttf-mscorefonts-installer
   tree
+  usb-creator-gtk
   virtualbox
   #wine
   vlc
   xclip
+
   # ifconfig
   net-tools
   nextcloud-desktop
@@ -93,13 +94,10 @@ sudo apt update
 sudo apt --yes install "${packages[@]}" || { echo 'Software install failed!'; exit 1; }
 
 # Install Flatpaks
-# flatpak install -y \
-# 	eu.betterbird.Betterbird \
-# 	org.chromium.Chromium \
-# 	org.apache.directory.studio \
-# 	org.telegram.desktop \
-# 	md.obsidian.Obsidian \
-# 	com.sublimetext.three \
-#   chat.schildi.desktop \
-#   org.mozilla.Firefox \
+flatpak install -y \
+	eu.betterbird.Betterbird \
+	org.apache.directory.studio \
+	org.telegram.desktop \
+	md.obsidian.Obsidian \
+ 	com.sublimetext.three \
 # 	org.mozilla.Thunderbird
