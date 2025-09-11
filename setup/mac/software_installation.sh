@@ -10,24 +10,22 @@ formulas=(
   mysql
   npm
   nvim
-  postgres
-  rbenv
   tree
   vim
   wget
-  youtube-dl
+  yt-dlp
 )
 
 apps=(
   alfred
   balenaetcher
+  betterbird
   bettertouchtool
-  chromedriver
+  chromium
   clipy
   firefox
   gimp
   github
-  google-chrome
   libreoffice
   macfuse # for borg mount
   nextcloud
@@ -36,7 +34,7 @@ apps=(
   sequel-pro
   sublime-text
   telegram
-  thunderbird
+  # thunderbird
   transmission
   virtualbox
   vlc
