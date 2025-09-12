@@ -19,7 +19,7 @@ copy_key_file_to_clipboard() {
 mkdir -p $HOME/.ssh
 
 if [[ ! -e $PRIVATE_KEY_FILE ]]; then
-  ssh-keygen -f $PRIVATE_KEY_FILE -t rsa -b 4096 -C 'Martin Eismann, Softwerk' 
+  ssh-keygen -f $PRIVATE_KEY_FILE -t rsa -b 4096 -C "Martin Eismann auf $(hostname)" -N ''
   ssh-add $PRIVATE_KEY_FILE
 
   copy_key_file_to_clipboard \
