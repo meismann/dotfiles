@@ -20,7 +20,7 @@ formulas=(
 apps=(
   alfred
   balenaetcher
-  betterbird
+#  betterbird
   bettertouchtool
   chromium
   clipy
@@ -32,7 +32,7 @@ apps=(
   nextcloud
   # pg-commander
   # pgadmin3
-  sequel-pro
+  # sequel-pro
   sublime-text
   telegram
   # thunderbird
