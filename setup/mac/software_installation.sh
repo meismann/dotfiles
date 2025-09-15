@@ -1,5 +1,6 @@
 formulas=(
   ag
+  borgbackup
   ffmpeg
   freac
   git
