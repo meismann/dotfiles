@@ -55,7 +55,7 @@ mkdir -p $WERKBANK_DIR
 
 if [[ ! -d $DOTFILES_REPO_DIR ]]; then
   git clone $DOTFILES_REPO_HTTPS_URL $DOTFILES_REPO_DIR \
-    || echo 'Cloning dotfiles failed!' && exit 1
+    || { echo 'Cloning dotfiles failed!'; exit 1; }
 else
   cd $DOTFILES_REPO_DIR # && git pull || echo 'Pulling dotfiles failed!' && exit 1
 fi
