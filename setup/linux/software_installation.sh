@@ -47,9 +47,7 @@ packages=(
   # python3-tk
 
   # Dependencies of borg backup with mount (https://docs.borgbase.com/restore/mount/)
-  #fuse
-  #libfuse-dev
-  #pkg-config
+  python3-pyfuse3
 
   # for element-desktop
   apt-transport-https
