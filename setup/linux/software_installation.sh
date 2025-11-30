@@ -1,5 +1,6 @@
 packages=(
   albert
+  calibre
   chromium
   copyq
   element-desktop
