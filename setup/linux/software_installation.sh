@@ -1,5 +1,6 @@
 packages=(
   albert
+  ansible
   calibre
   chromium
   copyq
