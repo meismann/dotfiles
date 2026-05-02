@@ -26,7 +26,7 @@ ARGV.each do |rel_path_with_name|
     .sub(/^(.*\/)?(?:[^\/]+(\.[^.]+)|[^\/.]*)$/, "\\1#{date_str}\\2")
     .sub(/\.[^\/.]+$/){ |s| s.downcase } # downcase suffix
 
-  raise "#{new_rel_path_with_name} existiert schon" if File.exists?(new_rel_path_with_name)
+  raise "#{new_rel_path_with_name} existiert schon" if File.exist?(new_rel_path_with_name)
 
   File.rename(rel_path_with_name, new_rel_path_with_name)
 rescue StandardError => e
