@@ -1,0 +1,73 @@
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[core]
+	excludesfile = ~/.gitignore
+	editor = nvim
+	filemode = false
+[user]
+	email = softwerk@eismann.cc
+	name = Martin Eismann
+[branch]
+	autosetuprebase = always
+[pull]
+	rebase = true
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[push]
+	default = current
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.2.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+  a = add
+  alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+  b = branch
+  c = commit -m
+  ca = commit -am
+  d = diff
+  dh = diff HEAD
+  f = fetch
+  h = help
+  l = log
+  lo = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  m = merge
+  o = checkout
+  # https://blog.andrewray.me/a-better-git-blame/
+  pl = pull
+  ps = push -u
+  psf = push --force-with-lease
+  r = rebase
+  ri = rebase -i
+  rth = reset --hard
+  t = stash
+  w = show
+  parent = "! git log --pretty=format:'%D' HEAD^ | grep 'origin/' | head -n1 | sed 's@origin/@@' | sed 's@,.*@@'"
+[safe]
+	directory = /media/@bildungsreferat/Bildungsreferat/2 Büroinfos Orga Ablaufbeschreibungen/Ablaufbeschreibungen, Bedienungsanleitungen/Thunderbird/Signature für Thunderbird Mails
+	directory = /media/@bildungsreferat/Bildungsreferat/2 Büroinfos Orga Ablaufbeschreibungen/Ablaufbeschreibungen, Bedienungsanleitungen/Thunderbird/Signature für Thunderbird Mails.wip

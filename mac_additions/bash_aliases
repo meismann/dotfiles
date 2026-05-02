@@ -1,3 +1,0 @@
-alias r='bin/rspec'
-alias por='touch tmp/restart.txt'
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
