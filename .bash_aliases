@@ -1,10 +1,13 @@
 alias b='bundle'
 alias be='bundle exec'
 alias bo='bundle open'
+alias books='rsync --delete -arv ~/Bücher/ /media/martin/PB700/Downloads/'
 alias bu='bundle update'
 alias d=docker
 alias dc=docker-compose
+alias dea='docker-compose exec app'
 alias du='du -csh'
+alias dus="du -sh"
 alias i='bundle exec rake i18n:js:export'
 alias ll='ls -lah'
 alias ls='ls -F'
@@ -12,15 +15,12 @@ alias lsd='/bin/ls -d1 */'
 alias m='bundle exec rake db:migrate && bundle exec rake db:migrate RAILS_ENV=test'
 alias p='ping db.de'
 alias pse='ps -e | grep'
+alias rd='slim-lint $(git diff --name-only $(git parent) | grep "\.slim$") && rubocop -a $(git diff --name-only $(git parent) | grep "\.rb$\|\.rake$" | grep -v "db/schema.rb")'
 alias rm='rm -fr'
 alias s='sudo'
 alias t='cd /tmp'
-alias vim='nvim -u ~/.vimrc'
+alias vim=nvim
 alias w="cd $HOME/werkbank"
-alias dus="du -sh"
-alias dea='docker-compose exec app'
-alias rd='slim-lint $(git diff --name-only $(git parent) | grep "\.slim$") && rubocop -a $(git diff --name-only $(git parent) | grep "\.rb$\|\.rake$" | grep -v "db/schema.rb")'
-alias books='rsync --delete -arv ~/Bücher/ /media/martin/PB700/Downloads/'
 alias z='cd ~/Zettelkasten'
 
 # Git aliases no autocompletable
