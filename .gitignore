@@ -30,3 +30,4 @@ Temporary Items
 
 # Sage:
 host_app/v3
+.config/nvim/lazy-lock.json
