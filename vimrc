@@ -33,13 +33,11 @@ filetype off                  " required
 " https://github.com/junegunn/vim-plug
 " May need a hack explained here: https://www.reddit.com/r/neovim/comments/3r3nn8/how_to_get_vimplug_to_autoload/
 call plug#begin('~/.vim/plugged')
-Plug 'kchmck/vim-coffee-script'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'vim-ruby/vim-ruby'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -81,8 +79,6 @@ set number
 set rnu
 set suffixesadd+=.js
 set suffixesadd+=.rb
-set suffixesadd+=.js.coffee
-set suffixesadd+=.coffee
 set scrolloff=5          "Start scrolling when 10 lines close to the bottom
 set cursorline
 
