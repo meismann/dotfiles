@@ -71,3 +71,5 @@
 [safe]
 	directory = /media/@bildungsreferat/Bildungsreferat/2 Büroinfos Orga Ablaufbeschreibungen/Ablaufbeschreibungen, Bedienungsanleitungen/Thunderbird/Signature für Thunderbird Mails
 	directory = /media/@bildungsreferat/Bildungsreferat/2 Büroinfos Orga Ablaufbeschreibungen/Ablaufbeschreibungen, Bedienungsanleitungen/Thunderbird/Signature für Thunderbird Mails.wip
+[init]
+	defaultBranch = master

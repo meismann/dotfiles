@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo ip route add 192.168.1.0/24 dev tun0 table 200
+sudo ip rule add to 192.168.1.0/24 lookup 200
+

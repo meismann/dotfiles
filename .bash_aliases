@@ -1,3 +1,4 @@
+alias ap='ansible-playbook -i inventory/prod/hosts.yml'
 alias b='bundle'
 alias be='bundle exec'
 alias bo='bundle open'
